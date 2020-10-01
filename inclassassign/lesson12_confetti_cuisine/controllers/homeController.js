@@ -47,15 +47,14 @@ exports.postedSignUpForm = (req, res) =>
 
 
 
+// get to new course 
+exports.newCourse = (req, res) => {
+    courses.push(req.body);
+    res.render("New Course");
+}
+
 // new routes for course
 exports.saveCourse = (req,res) => {
     courses.push(req.body);
     res.render("new course")
 }
-
-
-// get to new course 
-exports.newCourse = (req, res) => {
-    res.render("New Course");
-}
-
