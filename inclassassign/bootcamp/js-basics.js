@@ -5,3 +5,6 @@
 console.log("\"Kumar \n Akshat\"")
 
 // Question 2
+var name = "Kumar Akshat"
+
+// Question 3
