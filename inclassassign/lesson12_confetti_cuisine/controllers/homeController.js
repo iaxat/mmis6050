@@ -56,5 +56,5 @@ exports.newCourse = (req, res) => {
 // new routes for course
 exports.saveCourse = (req,res) => {
     courses.push(req.body);
-    res.render("new course")
+    res.render("new course", {offeredCourses: courses})
 }
