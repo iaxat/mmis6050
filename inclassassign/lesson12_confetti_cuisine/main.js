@@ -29,6 +29,10 @@ app.get("/courses", homeController.showCourses);
 app.get("/contact", homeController.showSignUp);
 app.post("/example", homeController.postedSignUpForm);
 
+// route for c=new course
+app.get("/newCourse", homeController.newCourse);
+app.post("/saveCourse", )
+
 // Add error routes after all other routes (act as catch-alls)
 app.use(errorController.pageNotFoundError);
 app.use(errorController.internalServerError);
