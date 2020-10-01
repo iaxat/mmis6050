@@ -37,6 +37,11 @@ exports.showSignUp = (req, res) =>
 
 exports.postedSignUpForm = (req, res) =>
 {    
-    res.render("thanks");
+    //save data in database
+
+    //view the contents of the request body
+    console.log(req.body.name);
+    //res.render("thanks", {name:req.body.name, email:req.body.email});
+    res.render("thanks", {data:req.body});
 }
 
