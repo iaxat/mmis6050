@@ -27,7 +27,7 @@ app.get("/", homeController.showHome);
 // Add callback functions for other routes
 app.get("/courses", homeController.showCourses);
 app.get("/contact", homeController.showSignUp);
-app.post("/contact", homeController.postedSignUpForm);
+app.post("/example", homeController.postedSignUpForm);
 
 // Add error routes after all other routes (act as catch-alls)
 app.use(errorController.pageNotFoundError);
