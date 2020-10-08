@@ -4,8 +4,24 @@ mongoose.connect(
   {useNewUrlParser: true, useUnifiedTopology: true}
 );
 const db = mongoose.connection;
-
 db.once("open", () => {
   console.log("Successfully connected to MongoDB using Mongoose!");
 });
 
+
+import mongoose from 'mongoose';
+const { Schema } = mongoose;
+
+const subscriberSchema = mongoose.Schema({
+  name: String,
+  email: String,
+  zipCode: Number
+});
+
+const Subscriber = mongoose.Schema({
+  name: String,
+  email: String,
+  zipCode: Number
+})
+
+const Subscriber = mongoose.model(Subscriber, subscriberSchema)
