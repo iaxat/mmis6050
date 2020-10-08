@@ -8,7 +8,7 @@ MongoDB.connect(dbURL, (error, client) => {
 
   // This code adds data in databse
   db.collection("contacts")
-  .insertOne({
+  .insertOne({ // The deprecated insert is replaced with insertOne
     name: "Freddie Mercury",
     email: "fred@queen.com"
   }, (error, db) => {
