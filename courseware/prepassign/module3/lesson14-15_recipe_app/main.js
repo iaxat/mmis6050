@@ -9,8 +9,8 @@ db.once("open", () => {
 });
 
 
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+// import mongoose from 'mongoose';
+// const { Schema } = mongoose;
 
 const subscriberSchema = mongoose.Schema({
   name: String,
@@ -18,11 +18,11 @@ const subscriberSchema = mongoose.Schema({
   zipCode: Number
 });
 
-const Subscriber = mongoose.Schema({
-  name: String,
-  email: String,
-  zipCode: Number
-})
+// const Subscriber = mongoose.Schema({
+//   name: String,
+//   email: String,
+//   zipCode: Number
+// })
 
 const Subscriber = mongoose.model(Subscriber, subscriberSchema)
 
