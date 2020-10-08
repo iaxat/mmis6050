@@ -5,6 +5,18 @@ const MongoDB = require("mongodb").MongoClient,
 MongoDB.connect(dbURL, (error, client) => {
   if (error) throw error;
   let db = client.db(dbName);
+
+  // This code adds data in databse
+  db.collection("contacts")
+  .insertOne({
+    name: "Freddie Mercury",
+    email: "fred@queen.com"
+  }, (error, db) => {
+    if (error) throw error;
+    console.log(db);
+  });
+
+
   db.collection("contacts")
     .find()
     .toArray((error, data) => {
