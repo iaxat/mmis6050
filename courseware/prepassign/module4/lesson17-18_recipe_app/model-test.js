@@ -42,10 +42,10 @@ mongoose.connect(
 
 mongoose.Promise = global.Promise;
 
-Subscriber.remove({})
+Subscriber.deleteMany({})
   .then((items) => console.log(`Removed ${items.n} records!`))
   .then(() => {
-    return Course.remove({});
+    return Course.deleteMany({});
   })
   .then((items) => console.log(`Removed ${items.n} records!`))
   .then(() => {
