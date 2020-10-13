@@ -16,14 +16,14 @@ Subscriber.create({
     zipCode: "12345"
   })
     .then(subscriber => console.log(subscriber))
-    .catch(error => console.log(error.message));       1
+    .catch(error => console.log(error.message));
   
-  var subscriber;                                      2
+  var subscriber;
   Subscriber.findOne({
     name: "Jon"
   }).then(result => {
-    subscriber = result;                               3
-    console.log(subscriber.getInfo());                 4
+    subscriber = result;
+    console.log(subscriber.getInfo());
   });
 
 
@@ -42,13 +42,13 @@ mongoose.connect(
 
 mongoose.Promise = global.Promise;
 
-Subscriber.remove({})                                              1
+Subscriber.remove({})
   .then((items) => console.log(`Removed ${items.n} records!`))
   .then(() => {
     return Course.remove({});
   })
   .then((items) => console.log(`Removed ${items.n} records!`))
-  .then(() => {                                                    2
+  .then(() => {
       return Subscriber.create( {
         name: "Jon",
         email: "jon@jonwexler.com",
@@ -67,7 +67,7 @@ Subscriber.remove({})                                              1
     testSubscriber = subscriber;
     console.log(`Found one subscriber: ${ subscriber.getInfo()}`);
   })
-  .then(() => {                                                    3
+  .then(() => {
       return Course.create({
         title: "Tomato Land",
         description: "Locally farmed tomatoes only",
@@ -79,15 +79,15 @@ Subscriber.remove({})                                              1
     testCourse = course;
     console.log(`Created course: ${course.title}`);
   })
-  .then(() => {                                                    4
+  .then(() => {
       testSubscriber.courses.push(testCourse);
     testSubscriber.save();
   })
-  .then( () => {                                                   5
+  .then( () => {
       return Subscriber.populate(testSubscriber, "courses");
   })
   .then(subscriber => console.log(subscriber))
-  .then(() => {                                                    6
+  .then(() => {
       return Subscriber.find({ courses: mongoose.Types.ObjectId(
  testCourse._id) });
   })
