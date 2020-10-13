@@ -55,3 +55,6 @@ app.use(errorController.respondInternalError);
 app.listen(app.get("port"), () => {
   console.log(`Server running at https://localhost:${app.get("port")}`);
 });
+
+const usersController = require("./controllers/usersController");
+app.get("/users", usersController.index);
