@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
 
 const courseSchema = new mongoose.Schema({
-  title: {
+  
+    title: {
     type: String,
     required: true,
     unique: true
@@ -17,4 +18,5 @@ const courseSchema = new mongoose.Schema({
     max: 99999
   }
 });
+
 module.exports = mongoose.model("Course", courseSchema);

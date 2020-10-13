@@ -30,4 +30,5 @@ subscriberSchema.methods.getInfo = function() {
       .find({zipCode: this.zipCode})
       .exec();
   };
-  
+  subscribers: [{type: mongoose .Schema.Types.ObjectId, ref: "Subscriber"}]
+  subscriberSchema: courses: [{type: mongoose.Schema.Types.ObjectId, ref: "Course"}]
