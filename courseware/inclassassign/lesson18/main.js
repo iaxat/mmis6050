@@ -13,7 +13,7 @@ const express = require("express"),
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
+  "mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/<dbname>?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);
@@ -51,5 +51,5 @@ app.use(errorController.respondNoResourceFound);
 app.use(errorController.respondInternalError);
 
 app.listen(app.get("port"), () => {
-  console.log(`Server running at http://localhost:${app.get("port")}`);
+  console.log(`Server running at mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/<dbname>?retryWrites=true&w=majority:${app.get("port")}`);
 });
