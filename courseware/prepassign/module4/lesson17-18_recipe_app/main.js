@@ -12,8 +12,8 @@ const express = require("express"),
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
-  { useNewUrlParser: true }
+  "mongodb+srv://axat:axat123@cluster0.y9onm.mongodb.net/recipe_db?retryWrites=true&w=majority",
+  { useNewUrlParser: true },{useCreatedIndex: true}
 );
 mongoose.set("useCreateIndex", true);
 const db = mongoose.connection;
