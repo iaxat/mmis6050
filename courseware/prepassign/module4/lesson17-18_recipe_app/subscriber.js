@@ -30,3 +30,4 @@ subscriberSchema.methods.getInfo = function() {
       .find({zipCode: this.zipCode})
       .exec();
   };
+  
