@@ -13,7 +13,7 @@ const express = require("express"),
   methodOverride = require("method-override");
 
 mongoose.connect(
-  "**********INSERT ATLAS CONNECTION HERE*************",
+  "mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/akshat?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 mongoose.set("useCreateIndex", true);
