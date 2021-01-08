@@ -27,6 +27,7 @@ router.use(
   })
 );
 
+
 router.use(layouts);
 router.use(express.static("public"));
 
