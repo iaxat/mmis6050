@@ -7,9 +7,19 @@ const express = require("express"),
     router = express.Router(),
     layouts = require("express-ejs-layouts"),
     methodOverride = require("method-override"),
-    homeController = require("./controllers/homeController")
-    ;
+    mongoose = require("mongoose"),
+    homeController = require("./controllers/homeController");
 
+
+
+
+
+
+mongoose.connect(
+    "mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/akshat?retryWrites=true&w=majority",
+    { useNewUrlParser: true ,useCreateIndex:true}
+    );
+    mongoose.set("useCreateIndex", true);
 
 
 app.set("port", process.env.PORT || 3000);
