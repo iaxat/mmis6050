@@ -1,1 +1,0 @@
-// Mongoose Schema Q - 6 section 'b'

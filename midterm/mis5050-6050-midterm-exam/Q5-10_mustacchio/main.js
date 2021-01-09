@@ -12,9 +12,6 @@ const express = require("express"),
 
 
 
-
-
-
 mongoose.connect(
     "mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/akshat?retryWrites=true&w=majority",
     { useNewUrlParser: true ,useCreateIndex:true}
