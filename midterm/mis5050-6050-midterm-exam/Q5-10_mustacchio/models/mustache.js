@@ -7,12 +7,14 @@ var mustacheSchema = new Schema(
     {
         title : {
             type: String,
-            required: true
+            required: true,
+            max: 30
         },
 
         imageUrl: {
             type: String,
-            required: true
+            required: true,
+            allowedFormats: ["jpg","png"],
         },
 
         description: {
@@ -21,3 +23,7 @@ var mustacheSchema = new Schema(
         }
     }
 )
+
+
+
+module.exports = mongoose.model("mustache", mustacheSchema);
