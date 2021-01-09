@@ -1,4 +1,4 @@
-// The main.js file section g
+// The main.js file section 'g'
 
 "use strict";
 
