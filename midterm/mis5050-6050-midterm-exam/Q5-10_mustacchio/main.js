@@ -31,7 +31,13 @@ router.use(
     })
 );
 router.use(express.json());
+
+
+
+// created
 router.get("/", homeController.index);
+router.get("/about", homeController.about);
+
 
 app.use("/", router);
 
