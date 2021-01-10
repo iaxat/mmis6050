@@ -20,6 +20,9 @@ var friends = [
         "favoriteFoods" : []
     },
     {
-        "firstName" : "jake",
+        "firstName" : "Jake",
+        "lastName" : "Howell",
+        "birthDate" : '',
+        "favoriteFoods" : []
     }
 ]
