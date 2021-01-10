@@ -11,12 +11,19 @@ const express = require("express"),
     homeController = require("./controllers/homeController");
 
 
+mongoose.Promise=global.Promise;
 
 mongoose.connect(
-    "mongodb+srv://axat:<password>@cluster0.y9onm.mongodb.net/akshat?retryWrites=true&w=majority",
-    { useNewUrlParser: true ,useCreateIndex:true}
-    );
-    mongoose.set("useCreateIndex", true);
+"mongodb+srv://root:root@akshat.y9onm.mongodb.net/asdf?retryWrites=true&w=majority",
+{ useNewUrlParser: true ,useCreateIndex:true,useUnifiedTopology: true} /*advice by terminal for depricated method*/
+);
+
+    const db=mongoose.connection;
+
+    db.once("open",()=>{
+    console.log("database connected");
+    })
+
 
 
 app.set("port", process.env.PORT || 3000);
@@ -53,3 +60,4 @@ app.use("/", router);
 app.listen(app.get("port"), () => {
   console.log(`Server running at http://localhost:${app.get("port")}`);
 });
+

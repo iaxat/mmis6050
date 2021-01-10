@@ -22,8 +22,6 @@ var mustacheSchema = new Schema(
             required: true
         }
     }
-)
+);
 
-
-
-module.exports = mongoose.model("mustache", mustacheSchema);
+module.exports = mongoose.model("Mustache", mustacheSchema);
