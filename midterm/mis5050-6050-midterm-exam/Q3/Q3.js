@@ -4,22 +4,21 @@ var friends = [
     {
         "firstName" : "Chandler",
         "lastName" : "Whitley",
-        "age" : 26,
-        "edu" : "MS"
+        "birthDate" : '',
+        "favoriteFoods" : []
     },
     {
-        "name" : "chetan",
-        "age" : 26,
-        "edu" : "MIS"
+        "firstName" : "Chetan",
+        "lastName" : "Birthare",
+        "birthDate" : '',
+        "favoriteFoods" : []
     },
     {
-        "name" : "bryan",
-        "age" : 25,
-        "edu" : "MS"
+        "firstName" : "Bryan",
+        "lastName" : "Lankford",
+        ""
     },
     {
         "name" : "jake",
-        "age" : 24,
-        "edu" : "MS"
     }
 ]
