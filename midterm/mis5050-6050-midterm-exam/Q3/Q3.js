@@ -49,6 +49,7 @@ friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math
 friends.forEach((friend,inDate)=>console.log(inDate));
 
 const funcDate(date, friends)=>{
+    if (friends.birthDate) 
     
 }
 console.log(funcDate("gfaghxfa",friends))
