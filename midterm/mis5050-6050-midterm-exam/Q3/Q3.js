@@ -44,3 +44,11 @@ friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math
 
 
 // Section 'c'
+// taking each 
+// var inDate = prompt('Enter date yyyy,mm,dd');
+friends.forEach((friend,inDate)=>console.log(inDate));
+
+const funcDate(date, friends)=>{
+    
+}
+console.log(funcDate("gfaghxfa",friends))
