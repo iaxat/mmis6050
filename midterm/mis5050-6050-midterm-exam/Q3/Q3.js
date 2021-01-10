@@ -1,30 +1,37 @@
 // Write the code for Question 3 here
 
 // This is the array of objects of friends
+// Section 'a'
 var friends = [
     {
         "firstName" : "Chandler",
         "lastName" : "Whitley",
-        "birthDate" : '',
+        "birthDate" : new Date(),
         "favoriteFoods" : []
     },
     {
         "firstName" : "Acea",
         "lastName" : "Winston",
-        "birthDate" : '',
+        "birthDate" : new Date(),
         "favoriteFoods" : []
     },
     {
         "firstName" : "Bryan",
         "lastName" : "Lankford",
-        "birthDate" : '',
+        "birthDate" : new Date(),
         "favoriteFoods" : []
     },
     {
         "firstName" : "Jake",
         "lastName" : "Howell",
-        "birthDate" : '',
+        "birthDate" : new Date(),
         "favoriteFoods" : []
     }
 ]
 
+
+// Section 'b'
+// The function to accept the array of functions
+
+
+friendFunction.apply(window,{friends});
