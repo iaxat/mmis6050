@@ -18,11 +18,12 @@ mongoose.connect(
 { useNewUrlParser: true ,useCreateIndex:true,useUnifiedTopology: true} /*advice by terminal for depricated method*/
 );
 
-    const db=mongoose.connection;
 
-    db.once("open",()=>{
-    console.log("database connected");
-    })
+const db=mongoose.connection;
+
+db.once("open",()=>{
+console.log("database connected");
+})
 
 
 
