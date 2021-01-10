@@ -36,5 +36,8 @@ var friends = [
 // since JS stores date till milliseconds, we can just use the 
 // normal new date function and subtract 
 // but this will make it in milliseconds
+// another method would be to create a new function for the date
+// in this question we went with the 1st method to reduce code space
+// the math library is used to round off
 
 friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math.round((new Date()-friend.birthDate)/(86400000*365)),'years old and likes the following foods:',friend.favoriteFoods));
