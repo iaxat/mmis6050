@@ -40,21 +40,30 @@ var friends = [
 // in this question we went with the 1st method to reduce code space
 // the math library is used to round off
 
-friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math.round((new Date()-friend.birthDate)/(86400000*365)),'years old and likes the following foods:',friend.favoriteFoods));
+const convertDate=(date)=>{
+    return (Math.round((new Date()-date)/(86400000*365)));
+}
+friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',convertDate(friend.birthDate),'years old and likes the following foods:',friend.favoriteFoods));
 
 
 // Section 'c'
 // taking each 
 // var inDate = prompt('Enter date yyyy,mm,dd');
+// Math.round((new Date()-friend.birthDate)/(86400000*365))
 // friends.forEach((friend,inDate)=>console.log(inDate));
-
-const functDate(friends, date)=>{
-    console.log();
-}
-
-
-const funcDate(date, friends)=>{
-    if (Math.round((date)-friend.birthDate)/(86400000*365)) )
+let date = new Date(1992,02,08);
+const functDate=(friends, date)=>{
+    let res=[];
     
+friends.forEach(element => {
+   if(convertDate(date)<convertDate(element.birthDate))
+   res.push(element);
+});
+    return res;
 }
-console.log(funcDate("gfaghxfa",friends))
+
+let resultArray=functDate(friends,date);
+resultArray.forEach(element => {
+    console.log(element)
+});
+
