@@ -17,7 +17,8 @@ var friends = [
         "edu" : "MS"
     },
     {
-        "name" : "",
-        "age" : 
+        "name" : "jake",
+        "age" : 24,
+        "edu" : "MS"
     }
 ]
