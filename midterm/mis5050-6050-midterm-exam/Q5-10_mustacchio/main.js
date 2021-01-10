@@ -8,7 +8,8 @@ const express = require("express"),
     layouts = require("express-ejs-layouts"),
     methodOverride = require("method-override"),
     mongoose = require("mongoose"),
-    homeController = require("./controllers/homeController");
+    homeController = require("./controllers/homeController"),
+    styleController = require("./controllers/styleController");
 
 
 mongoose.Promise=global.Promise;
@@ -52,6 +53,9 @@ router.use(express.json());
 // created
 router.get("/", homeController.index);
 router.get("/about", homeController.about);
+
+router.get("/newStyle",styleController.new);
+router.post("/create",styleController.create, styleController.redirectView);
 
 
 app.use("/", router);

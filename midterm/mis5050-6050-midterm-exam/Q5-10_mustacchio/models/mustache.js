@@ -14,7 +14,7 @@ var mustacheSchema = new Schema(
         imageUrl: {
             type: String,
             required: true,
-            allowedFormats: ["jpg","png"],
+            // allowedFormats: ["jpg","png"],
         },
 
         description: {
