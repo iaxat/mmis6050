@@ -14,7 +14,7 @@ const express = require("express"),
 mongoose.Promise=global.Promise;
 
 mongoose.connect(
-"mongodb+srv://root:root@akshat.y9onm.mongodb.net/asdf?retryWrites=true&w=majority",
+"mongodb+srv://root:root@akshat.y9onm.mongodb.net/qwer?retryWrites=true&w=majority",
 { useNewUrlParser: true ,useCreateIndex:true,useUnifiedTopology: true} /*advice by terminal for depricated method*/
 );
 
