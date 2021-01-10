@@ -2,7 +2,8 @@
 
 var friends = [
     {
-        "name" : "chandler",
+        "firstName" : "Chandler",
+        "lastName" : "Whitley",
         "age" : 26,
         "edu" : "MS"
     },
