@@ -51,7 +51,12 @@ friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',conv
 // var inDate = prompt('Enter date yyyy,mm,dd');
 // Math.round((new Date()-friend.birthDate)/(86400000*365))
 // friends.forEach((friend,inDate)=>console.log(inDate));
+
+
+// Change date here to get the output of results
 let date = new Date(1992,02,08);
+
+
 const functDate=(friends, date)=>{
     let res=[];
     
