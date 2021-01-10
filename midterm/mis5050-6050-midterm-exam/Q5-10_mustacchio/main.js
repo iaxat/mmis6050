@@ -16,7 +16,7 @@ mongoose.Promise=global.Promise;
 
 mongoose.connect(
 "mongodb+srv://root:root@akshat.y9onm.mongodb.net/qwer?retryWrites=true&w=majority",
-{ useNewUrlParser: true ,useCreateIndex:true,useUnifiedTopology: true} /*advice by terminal for depricated method*/
+{ useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true} /*advice by terminal for depricated method*/
 );
 
 
@@ -31,11 +31,14 @@ console.log("database connected");
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
+
+
 router.use(
     methodOverride("_method", {
     methods: ["POST", "GET"]
     })
 );
+
 
 
 router.use(layouts);
