@@ -1,5 +1,6 @@
 // Write the code for Question 3 here
 
+// This is the array of objects of friends
 var friends = [
     {
         "firstName" : "Chandler",
@@ -26,3 +27,4 @@ var friends = [
         "favoriteFoods" : []
     }
 ]
+
