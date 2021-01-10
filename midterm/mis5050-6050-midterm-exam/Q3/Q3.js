@@ -8,17 +8,18 @@ var friends = [
         "favoriteFoods" : []
     },
     {
-        "firstName" : "Chetan",
-        "lastName" : "Birthare",
+        "firstName" : "Acea",
+        "lastName" : "Winston",
         "birthDate" : '',
         "favoriteFoods" : []
     },
     {
         "firstName" : "Bryan",
         "lastName" : "Lankford",
-        ""
+        "birthDate" : '',
+        "favoriteFoods" : []
     },
     {
-        "name" : "jake",
+        "firstName" : "jake",
     }
 ]
