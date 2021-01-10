@@ -66,4 +66,3 @@ let resultArray=functDate(friends,date);
 resultArray.forEach(element => {
     console.log(element)
 });
-
