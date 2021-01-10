@@ -41,3 +41,6 @@ var friends = [
 // the math library is used to round off
 
 friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math.round((new Date()-friend.birthDate)/(86400000*365)),'years old and likes the following foods:',friend.favoriteFoods));
+
+
+// Section 'c'
