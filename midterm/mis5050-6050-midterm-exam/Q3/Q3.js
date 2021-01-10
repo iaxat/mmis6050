@@ -46,5 +46,3 @@ friends.forEach((friend)=>console.log(friend.firstName,friend.lastName,'is',Math
 // Section 'c'
 // taking each 
 // var inDate = prompt('Enter date yyyy,mm,dd');
-}
-console.log(funcDate("gfaghxfa",friends))
