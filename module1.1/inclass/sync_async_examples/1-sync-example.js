@@ -8,5 +8,3 @@ console.log("The sum is " + sum);
 function add (x, y) {
     return x + y;
 }
-
-
