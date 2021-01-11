@@ -3,3 +3,6 @@
 
 // Resources Used: Class lecture Module 1.1
 
+// program starts here
+console.log('Starting the Program');
+
