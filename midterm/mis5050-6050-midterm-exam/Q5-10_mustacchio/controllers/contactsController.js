@@ -11,7 +11,7 @@ const contacts = require("../models/contacts");
 module.exports = {
   
   index: (req, res) => {
-    res.render("contacts");
+    res.render("contact");
   },
 
   redirectView: (req, res, next) => {
