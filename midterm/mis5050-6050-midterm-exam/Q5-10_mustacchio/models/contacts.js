@@ -41,5 +41,5 @@ var contactSchema = new Schema(
     }
 );
 
-module.exports = mongoose.model("blogPost", blogSchema);
+module.exports = mongoose.model("con", contactSchema);
 
