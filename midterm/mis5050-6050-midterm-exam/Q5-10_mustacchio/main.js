@@ -4,6 +4,8 @@
 
 "use strict";
 
+const contactsController = require("./controllers/contactsController");
+
 const express = require("express"),
     app = express(),
     router = express.Router(),
@@ -71,6 +73,11 @@ router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 // Question 7 
 router.get("/blogposts",blogPostController.index,blogPostController.indexView);
 router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
+
+// Question 8
+router.get("/contact/new",contactsController.index,contactsController.indexView);
+router.get("/contact/:id", contactsController.styleid,contactsController.styleidView);
+
 
 app.use("/", router);
 

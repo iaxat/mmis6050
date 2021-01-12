@@ -6,23 +6,23 @@
 
 "use strict";
 
-const blogPost = require("../models/blogPost");
+const contact = require("../models/contact");
 
 module.exports = {
   
   index: (req, res, next) => {
-    blogPost.find()
+    contact.find()
       .then(styles => {
         res.locals.styles = styles;
         next();
       })
       .catch(error => {
-        console.log(`Error fetching blog post: ${error.message}`);
+        console.log(`Error fetching contact: ${error.message}`);
         next(error);
       });
   },
   indexView: (req, res) => {
-    res.render("blog");
+    res.render("contact");
   },
 
   redirectView: (req, res, next) => {
@@ -34,18 +34,18 @@ module.exports = {
 
   styleid: (req,res,next) => {
     let id=req.params.id;
-    blogPost.findById(id)
+    contact.findById(id)
       .then(styles => {
         res.locals.styleid =styles ;
         next();
       })
       .catch(error => {
-        console.log('Error fetching blog post: ${error.message}');
+        console.log('Error fetching contact: ${error.message}');
         next(error);
       });
   },
   
   styleidView: (req,res) => {
-    res.render("views/blog-single-post");
+    res.render("views/contact");
   }
 };
