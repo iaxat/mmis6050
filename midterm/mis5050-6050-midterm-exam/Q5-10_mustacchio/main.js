@@ -63,6 +63,7 @@ router.get("/about", homeController.about);
 // router.post("/create",styleController.create, styleController.redirectView);
 
 router.get("/styles",styleController.index,styleController.indexView);
+router.get("/styles/:id");
 
 
 app.use("/", router);

@@ -19,10 +19,14 @@ module.exports = {
     res.render("styles/gallery");
   },
 
-
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath !== undefined) res.redirect(redirectPath);
     else next();
+  },
+
+
+  styleid: (req,res,next) => {
+    
   }
 };
