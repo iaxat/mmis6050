@@ -59,8 +59,10 @@ router.use(express.json());
 router.get("/", homeController.index);
 router.get("/about", homeController.about);
 
-router.get("/newStyle",styleController.new);
-router.post("/create",styleController.create, styleController.redirectView);
+// router.get("/newStyle",styleController.new);
+// router.post("/create",styleController.create, styleController.redirectView);
+
+router.get("/styles",styleController.index,styleController.indexView);
 
 
 app.use("/", router);

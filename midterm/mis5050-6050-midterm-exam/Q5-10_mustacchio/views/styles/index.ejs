@@ -1,0 +1,28 @@
+<%console.log(styles)%>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>title</th>
+      <th>description</th>
+      <th>image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% styles.forEach(style => { %>
+    <tr>
+      <td>
+        <a href="<%= `/styles/${style._id}` %>">
+          <%= style.title %>
+        </a>
+      </td>
+      <td>
+        <%= style.description %>
+      </td>
+      <td>
+        <img src="images/<%= style.imageUrl %>">
+      </td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
