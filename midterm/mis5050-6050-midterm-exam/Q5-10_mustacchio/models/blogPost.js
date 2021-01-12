@@ -16,7 +16,8 @@ var blogSchema = new Schema(
         summary: {
             type: String,
             required: true,
-            // allowedFormats: ["jpg","png"],
+            max: 250,
+            allowedFormats: ["jpg","png"],
         },
 
         content: {
@@ -25,16 +26,18 @@ var blogSchema = new Schema(
         },
         
         imageUrl: {
-            
-            
+            type: String,
+            required: true,
+            allowedFormats: ["jpg","png"]
+
         },
 
         datePosted: {
-
-
+            type: Date,
+            required: true
         }
 
     }
 );
 
-module.exports = mongoose.model("Mustache", mustacheSchema);
+module.exports = mongoose.model("blogPost", blogSchema);
