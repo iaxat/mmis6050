@@ -16,14 +16,12 @@ var contactSchema = new Schema(
         },
 
         address: {
-            type: String,
-            required: true,
-            max: 250
+            type: String
         },
 
         email: {
             type: String,
-            required: true
+            required: true,
         },
         
         phone: {
