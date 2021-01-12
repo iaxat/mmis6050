@@ -68,6 +68,10 @@ router.get("/styles",styleController.index,styleController.indexView);
 router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 
 
+router.get("",blogPostController.index,blogPostController.indexView);
+router.get("", blogPostController.styleid,blogPostController.styleidView);
+
+
 app.use("/", router);
 
 
