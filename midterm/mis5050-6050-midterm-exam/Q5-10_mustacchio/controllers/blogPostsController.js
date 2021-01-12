@@ -43,6 +43,6 @@ module.exports = {
   },
   
   styleidView: (req,res) => {
-    res.render("views/blog-single-post");
+    res.render("blog-single-post");
   }
 };
