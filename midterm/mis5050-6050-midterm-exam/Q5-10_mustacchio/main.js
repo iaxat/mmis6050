@@ -11,7 +11,9 @@ const express = require("express"),
     methodOverride = require("method-override"),
     mongoose = require("mongoose"),
     homeController = require("./controllers/homeController"),
-    styleController = require("./controllers/styleController");
+    styleController = require("./controllers/styleController"),
+    blogPostController = require("./controllers/blogPostsController")
+    ;
 
 
 mongoose.Promise=global.Promise;
