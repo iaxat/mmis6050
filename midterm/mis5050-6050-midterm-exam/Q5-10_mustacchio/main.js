@@ -64,10 +64,11 @@ router.get("/about", homeController.about);
 // router.get("/newStyle",styleController.new);
 // router.post("/create",styleController.create, styleController.redirectView);
 
+// Question 6
 router.get("/styles",styleController.index,styleController.indexView);
 router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 
-
+// Question 7 
 router.get("",blogPostController.index,blogPostController.indexView);
 router.get("", blogPostController.styleid,blogPostController.styleidView);
 
