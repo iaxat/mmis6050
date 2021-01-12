@@ -69,8 +69,8 @@ router.get("/styles",styleController.index,styleController.indexView);
 router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 
 // Question 7 
-router.get("",blogPostController.index,blogPostController.indexView);
-router.get("", blogPostController.styleid,blogPostController.styleidView);
+router.get("/blogposts",blogPostController.index,blogPostController.indexView);
+router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
 
 
 app.use("/", router);
