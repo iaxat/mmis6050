@@ -72,7 +72,6 @@ router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 router.get("/blogposts",blogPostController.index,blogPostController.indexView);
 router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
 
-
 app.use("/", router);
 
 
