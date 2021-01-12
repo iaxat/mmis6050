@@ -7,7 +7,7 @@
 const mongoose = require("mongoose"),
   { Schema } = mongoose;
 
-var blogSchema = new Schema(
+var contactSchema = new Schema(
     {
         title : {
             type: String,
