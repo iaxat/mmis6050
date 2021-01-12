@@ -4,6 +4,9 @@
 
 "use strict";
 
+const { strict } = require("assert");
+const { stringify } = require("querystring");
+
 const mongoose = require("mongoose"),
   { Schema } = mongoose;
 
@@ -22,12 +25,11 @@ var contactSchema = new Schema(
         email: {
             type: String,
             required: true,
+            // format validation
         },
         
         phone: {
             type: String,
-            required: true,
-            allowedFormats: ["jpg","png"]
 
         },
 
@@ -42,18 +44,16 @@ var contactSchema = new Schema(
         },
 
         response: {
-            type: Date,
-            required: true
+            type: String,
         },
 
         dateResponded: {
             type: Date,
-            required: true
         },
 
         shortMessage: {
-            type: Date,
-            required: true
+            type: mongoose.VirtualType,
+            // return 10 word message
         }
 
     }
