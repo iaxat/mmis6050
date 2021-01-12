@@ -9,31 +9,51 @@ const mongoose = require("mongoose"),
 
 var contactSchema = new Schema(
     {
-        title : {
+        name : {
             type: String,
             required: true,
             max: 30
         },
 
-        summary: {
+        address: {
             type: String,
             required: true,
             max: 250
         },
 
-        content: {
+        email: {
             type: String,
             required: true
         },
         
-        imageUrl: {
+        phone: {
             type: String,
             required: true,
             allowedFormats: ["jpg","png"]
 
         },
 
+        message: {
+            type: Date,
+            required: true
+        },
+
         datePosted: {
+            type: Date,
+            required: true
+        },
+
+        response: {
+            type: Date,
+            required: true
+        },
+
+        dateResponded: {
+            type: Date,
+            required: true
+        },
+
+        shortMessage: {
             type: Date,
             required: true
         }
