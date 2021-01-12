@@ -27,6 +27,19 @@ module.exports = {
 
 
   styleid: (req,res,next) => {
-    
+    let id=req.params.id;
+    Mustache.findById(id)
+      .then(styles => {
+        res.locals.styleid =styles ;
+        next();
+      })
+      .catch(error => {
+        console.log('Error fetching styles: ${error.message}');
+        next(error);
+      });
+  },
+  
+  styleidView: (req,res) => {
+    res.render("styles/gallery-single-post.ejs");
   }
 };

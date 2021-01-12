@@ -1,30 +1,28 @@
-<%console.log(styles)%>
+<!doctype html>
+<!-- Website Template by freewebsitetemplates.com -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery - Mustacchio</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width : 568px)">
+	<link rel="shortcut icon" type="image/png" href="images/icons/icon-mustache.png"/>
+	<script type="text/javascript" src="js/mobile.js"></script>
+</head>
+<body>
+	<div id="body">
+		<h1><span>style gallery</span></h1>
+		<ul class="gallery">
+			<% styles.forEach(style => { %>
+      <li>
+				<a href="<%= `/styles/${style._id}` %>">
+					<img src="images/<%= style.imageUrl %>">
+				</a>
+			</li>
+      <% }); %>
+    </ul>
+	</div>
+	</body>
+</html>
 
-<!-- Resource used: In Class 5.2 Module -->
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>title</th>
-      <th>description</th>
-      <th>image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% styles.forEach(style => { %>
-    <tr>
-      <!-- <td>
-          <%= style.title %>
-        </a>
-      </td>
-      <td>
-        <%= style.description %>
-      </td> -->
-      <td>
-        <a href="<%= `/styles/${style._id}` %>">
-        <img src="images/<%= style.imageUrl %>">
-      </td>
-    </tr>
-    <% }); %>
-  </tbody>
-</table>
