@@ -10,7 +10,7 @@ const { stringify } = require("querystring");
 const mongoose = require("mongoose"),
   { Schema } = mongoose;
 
-var contactSchema = new Schema(
+var contactsSchema = new Schema(
     {
         name : {
             type: String,
@@ -49,14 +49,14 @@ var contactSchema = new Schema(
 
         dateResponded: {
             type: Date,
-        },
-
-        shortMessage: {
-            type: mongoose.VirtualType,
-            // return 10 word message
         }
+
+        // shortMessage: {
+        //     // type: mongoose.VirtualType,
+        //     // return 10 word message
+        // }
 
     }
 );
 
-module.exports = mongoose.model("con", contactSchema);
+module.exports = mongoose.model("con", contactsSchema);

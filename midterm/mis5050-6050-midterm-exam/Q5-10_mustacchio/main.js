@@ -75,8 +75,9 @@ router.get("/blogposts",blogPostController.index,blogPostController.indexView);
 router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
 
 // Question 8
-router.get("/contact/new",contactsController.index,contactsController.indexView);
-router.get("/contact/:id", contactsController.styleid,contactsController.styleidView);
+// 
+router.get("/contacts/new",contactsController.index);
+router.get("/contacts/:id", contactsController.styleid,contactsController.styleidView);
 
 
 app.use("/", router);

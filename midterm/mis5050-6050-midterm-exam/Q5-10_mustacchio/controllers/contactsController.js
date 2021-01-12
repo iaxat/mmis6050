@@ -6,23 +6,12 @@
 
 "use strict";
 
-const contact = require("../models/contact");
+const contacts = require("../models/contacts");
 
 module.exports = {
   
-  index: (req, res, next) => {
-    contact.find()
-      .then(styles => {
-        res.locals.styles = styles;
-        next();
-      })
-      .catch(error => {
-        console.log(`Error fetching contact: ${error.message}`);
-        next(error);
-      });
-  },
-  indexView: (req, res) => {
-    res.render("contact");
+  index: (req, res) => {
+    res.render("contacts");
   },
 
   redirectView: (req, res, next) => {
@@ -34,18 +23,18 @@ module.exports = {
 
   styleid: (req,res,next) => {
     let id=req.params.id;
-    contact.findById(id)
+    contacts.findById(id)
       .then(styles => {
         res.locals.styleid =styles ;
         next();
       })
       .catch(error => {
-        console.log('Error fetching contact: ${error.message}');
+        console.log('Error fetching contacts: ${error.message}');
         next(error);
       });
   },
   
   styleidView: (req,res) => {
-    res.render("views/contact");
+    res.render("views/contacts");
   }
 };
