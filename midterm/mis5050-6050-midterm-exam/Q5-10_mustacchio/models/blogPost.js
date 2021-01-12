@@ -5,7 +5,7 @@
 const mongoose = require("mongoose"),
   { Schema } = mongoose;
 
-var mustacheSchema = new Schema(
+var blogSchema = new Schema(
     {
         title : {
             type: String,
@@ -13,16 +13,27 @@ var mustacheSchema = new Schema(
             max: 30
         },
 
-        imageUrl: {
+        summary: {
             type: String,
             required: true,
             // allowedFormats: ["jpg","png"],
         },
 
-        description: {
+        content: {
             type: String,
             required: true
+        },
+        
+        imageUrl: {
+            
+            
+        },
+
+        datePosted: {
+
+
         }
+
     }
 );
 
