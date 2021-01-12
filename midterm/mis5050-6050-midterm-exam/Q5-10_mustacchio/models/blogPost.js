@@ -16,8 +16,7 @@ var blogSchema = new Schema(
         summary: {
             type: String,
             required: true,
-            max: 250,
-            allowedFormats: ["jpg","png"],
+            max: 250
         },
 
         content: {
