@@ -19,7 +19,7 @@ module.exports = {
       });
   },
   indexView: (req, res) => {
-    res.render("views/blog");
+    res.render("blog");
   },
 
   redirectView: (req, res, next) => {
