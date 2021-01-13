@@ -52,7 +52,7 @@ var contactsSchema = new Schema(
         }
 
         // shortMessage: {
-        //     // type: mongoose.VirtualType,
+            // type: mongoose.VirtualType,
         //     // return 10 word message
         // }
 
