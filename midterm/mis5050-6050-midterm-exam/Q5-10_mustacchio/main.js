@@ -4,6 +4,7 @@
 
 "use strict";
 
+const { redirectView } = require("./controllers/contactsController");
 const contactsController = require("./controllers/contactsController");
 
 const express = require("express"),
@@ -77,7 +78,9 @@ router.get("/blogposts/:id", blogPostController.styleid,blogPostController.style
 // Question 8
 // 
 router.get("/contacts/new",contactsController.index);
-router.get("/contacts/:id", contactsController.styleid,contactsController.styleidView);
+router.post("/contacts/create", contactsController.create,contactsController.redirectView);
+router.get("/thanks", contactsController.thanks);
+router.get("/contacts",contactsController.list,contactsController.redirectView);
 
 
 app.use("/", router);

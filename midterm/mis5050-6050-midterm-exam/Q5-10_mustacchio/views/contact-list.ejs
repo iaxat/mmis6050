@@ -49,24 +49,14 @@
 			</tr>
 		</thead>
 		<tbody>
+			<% lists.forEach(list => { %>
 			<tr>
-				<td>Jun 5, 2020</td>
-				<td>Tom Selleck</td>
-				<td>With its incredible shape, form, and fullness...</td>
-				<td><a href="contact-respond.html" class="button1">View</a></td>
+				<td><%= list.datePosted%></td>
+				<td><%= list.name%></td>
+				<td><%= list.message%></td>
+				<td><a href="<%= `/contacts/${list._id}/edit` %>" class="button1">View</a></td>
 			</tr>
-			<tr>
-				<td>Aug 10, 2020</td>
-				<td>Burt Reynolds</td>
-				<td>You guys have the best mustache ideas...</td>
-				<td><a href="contact-respond.html" class="button1">View</a></td>
-			</tr>
-			<tr>
-				<td>Sep 25, 2020</td>
-				<td>Ron Swanson</td>
-				<td>I'm wondering whom I should contact to...</td>
-				<td><a href="contact-respond.html" class="button1">View</a></td>
-			</tr>		
+			<% }); %>
 		</tbody>
 		</table>
 	</div>

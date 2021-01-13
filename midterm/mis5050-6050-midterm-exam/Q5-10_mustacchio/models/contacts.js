@@ -25,7 +25,6 @@ var contactsSchema = new Schema(
         email: {
             type: String,
             required: true,
-            // format validation
         },
         
         phone: {
@@ -34,7 +33,7 @@ var contactsSchema = new Schema(
         },
 
         message: {
-            type: Date,
+            type: String,
             required: true
         },
 
@@ -50,7 +49,6 @@ var contactsSchema = new Schema(
         dateResponded: {
             type: Date,
         }
-
         // shortMessage: {
             // type: mongoose.VirtualType,
         //     // return 10 word message

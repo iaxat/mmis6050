@@ -35,6 +35,34 @@ module.exports = {
   },
   
   styleidView: (req,res) => {
-    res.render("views/contacts");
+    res.render("contacts");
+  },
+
+  create: (req,res,next)=>{
+    let contactParams = {
+      name: req.body.name,
+      address: req.body.address,
+      email: req.body.email,
+      phone: req.body.phone,
+      message: req.body.message,
+      datePosted: Date.now()
+    };
+    contacts.create(contactParams).then(contact => {
+      res.locals.redirect = "/thanks";
+      next();
+    })
+  },
+  thanks:(req,res,next)=>{
+    res.render("thanks");
+  },
+  list:(req,res,next) =>{
+    console.log("kbjshb");
+    contacts.find({datePosted: null}).then(lists=>{
+    res.locals.lists=lists;
+    next(); 
+    })
+  },
+  listView:(req,res)=>{
+    res.render("contact-list");
   }
 };
