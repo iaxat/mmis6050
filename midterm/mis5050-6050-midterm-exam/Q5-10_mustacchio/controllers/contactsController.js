@@ -57,7 +57,8 @@ module.exports = {
   },
   list:(req,res,next) =>{
     console.log("kbjshb");
-    contacts.find({datePosted: null}).then(lists=>{
+    
+    contacts.find({dateResponded: null}).then(lists=>{
     res.locals.lists=lists;
     next(); 
     })

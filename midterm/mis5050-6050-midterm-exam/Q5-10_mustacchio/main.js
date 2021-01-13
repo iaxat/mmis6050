@@ -80,7 +80,7 @@ router.get("/blogposts/:id", blogPostController.styleid,blogPostController.style
 router.get("/contacts/new",contactsController.index);
 router.post("/contacts/create", contactsController.create,contactsController.redirectView);
 router.get("/thanks", contactsController.thanks);
-router.get("/contacts",contactsController.list,contactsController.redirectView);
+router.get("/contacts",contactsController.list,contactsController.listView);
 
 
 app.use("/", router);
