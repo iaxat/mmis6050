@@ -38,22 +38,22 @@
 	</div>
 	<div id="body">
 		<h1><span>respond to contact request</span></h1>
-		<form action="contact.html" method="post">
+		<form action="/contacts/:<%=response._id%>/update" method="post">
 			<div class="disabled">
-				<input type="text" name="name" id="fname" placeholder="name" disabled="disabled" value="Tom Selleck">
-				<input type="text" name="address" id="address" placeholder="address" disabled="disabled" value="1 Selleck Way">
-				<input type="email" name="email" id="email" placeholder="email" disabled="disabled" value="tom@selleck.com">
+				<input type="text" name="name" id="fname" placeholder="name" disabled="disabled" value=<%=response.name%>>
+				<input type="text" name="address" id="address" placeholder="address" disabled="disabled" value=<%=response.address%>>
+				<input type="email" name="email" id="email" placeholder="email" disabled="disabled" value="<%=response.email%>>
 				<input type="tel" name="phone" id="phone" placeholder="phone number (XXX-XXX-XXXX)"
-					pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" disabled="disabled" value="435-867-5309">
-				<textarea name="message" id="message" placeholder="MESSAGE" required disabled="disabled">With its incredible shape, form, and fullness, my Magnum P.I.-era mustache is, without a doubt, the greatest celebrity mustache the world has ever known...as if there was ever any doubt.
+					pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" disabled="disabled" value=<%=response.phone%>>
+				<textarea name="message" id="message" placeholder="MESSAGE" required disabled="disabled"><%=response.message%>
 				</textarea>
 				<hr />
 			</div>
 			<textarea name="response" id="response" placeholder="RESPONSE" required></textarea>
-			<input type="hidden" name="id" id="id" value="23598798797235">
+			<input type="hidden" name="id" id="id" value="<%=response._id%>">
 		
 			<input type="submit" name="send" id="send" value="send">
-			<a href="#" name="cancel" id="cancel">cancel</a>
+			<a href="/contacts" name="cancel" id="cancel">cancel</a>
 		</form>
 	</div>
 	<div id="footer">

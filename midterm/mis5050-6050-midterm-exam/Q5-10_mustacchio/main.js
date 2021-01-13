@@ -83,6 +83,7 @@ router.get("/thanks", contactsController.thanks);
 router.get("/contacts",contactsController.list,contactsController.listView);
 
 router.get("/contacts/:id/edit",contactsController.edit);
+router.post("/contacts/:id/update",contactsController.update);
 
 app.use("/", router);
 

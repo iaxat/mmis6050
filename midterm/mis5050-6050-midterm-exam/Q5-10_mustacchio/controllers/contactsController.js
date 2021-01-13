@@ -69,7 +69,25 @@ module.exports = {
   },
 
   edit: (req, res) => {
-    response.render("contact-response")
+    let Id = req.params.id;
+    contacts.findById(Id)
+      .then(response => {
+        res.render("contact-respond", {
+          response: response
+        });
+      })
+  },
+  update:(req,res,next)=>{
+    console.log(req.body.response);
+    let Id = req.body.id;
+    console.log(Id)
+    // console.log(typeof(req.body.response));
+    contacts.findByIdAndUpdate(Id, { $set: { dateResponded: Date.now(), response: req.body.response}   } )
+      .then(response => {
+        res.render("contact-respond", {
+          response: response
+        });
+      })
   }
 
 
