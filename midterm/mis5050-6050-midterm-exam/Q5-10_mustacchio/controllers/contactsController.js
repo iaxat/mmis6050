@@ -6,6 +6,7 @@
 
 "use strict";
 
+const { response } = require("express");
 const contacts = require("../models/contacts");
 
 module.exports = {
@@ -57,7 +58,7 @@ module.exports = {
   },
   list:(req,res,next) =>{
     console.log("kbjshb");
-    
+
     contacts.find({dateResponded: null}).then(lists=>{
     res.locals.lists=lists;
     next(); 
@@ -65,5 +66,11 @@ module.exports = {
   },
   listView:(req,res)=>{
     res.render("contact-list");
+  },
+
+  edit: (req, res) => {
+    response.render("contact-response")
   }
+
+
 };

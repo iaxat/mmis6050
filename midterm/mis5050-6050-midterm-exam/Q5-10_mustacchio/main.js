@@ -82,6 +82,7 @@ router.post("/contacts/create", contactsController.create,contactsController.red
 router.get("/thanks", contactsController.thanks);
 router.get("/contacts",contactsController.list,contactsController.listView);
 
+router.get("/contacts/:id/edit",contactsController.edit);
 
 app.use("/", router);
 
