@@ -58,7 +58,8 @@ router.use(
 );
 router.use(express.json());
 
-
+// log from module 5.1
+router.use(homeController.logRequestPaths);
 
 // created
 router.get("/", homeController.index);
