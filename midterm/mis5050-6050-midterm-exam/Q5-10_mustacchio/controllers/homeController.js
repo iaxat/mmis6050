@@ -2,6 +2,8 @@
 
 "use strict";
 
+const fs=require('fs');
+
 module.exports = {
   index: (req, res) => {
     res.render("index");
@@ -13,8 +15,8 @@ module.exports = {
     // console.log(req.method)
     let today =  new Date();
     let str=today+' '+req.method+' '+ 'request made to: '+req.url;
-    console.log(today,` `,req.method,` request made to: ${req.url}`);
-    fs.writeFile('log.txt', str, function(err) {
+    console.log(str);
+    fs.appendFile('log/requestLog.txt', str, function(err) {
       if (err) {
          return console.error(err);
       }else{
