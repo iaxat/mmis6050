@@ -92,16 +92,21 @@ module.exports = {
       })
   },
 
+
+  // Q 10  - Nodemailer used:
   // for nodemailer:
   // resources used:
+  // https://www.geeksforgeeks.org/how-to-send-attachments-and-email-using-nodemailer-in-node-js/
   // https://stackoverflow.com/questions/38024428/error-connect-econnrefused-127-0-0-1465-nodemailer
+  // https://www.geeksforgeeks.org/how-to-send-email-with-nodemailer-using-gmail-account-in-node-js/
+  // https://www.codegrepper.com/code-examples/javascript/nodemailer+step+by+step+example
   // mail used - mail.com
 
   mail:(req,res,next)=>{
     var smtpConfig = {
       host: 'smtp.mail.com',
       port: 465,
-      secure: true, // use SSL
+      secure: true,
       auth: {
           user: 'test6050@mail.com',
           pass: 'test6050@123'
@@ -119,7 +124,6 @@ module.exports = {
     sender.sendMail(mail, function(error, info) { 
       if (error) { 
         console.log(error); 
-        
       } else { 
         console.log("Email sent successfully: " + info.response); 
         res.locals.redirect = "/thanks";
