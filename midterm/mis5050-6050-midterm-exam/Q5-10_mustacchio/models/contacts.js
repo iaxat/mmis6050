@@ -64,8 +64,15 @@ var contactsSchema = new Schema(
             // type: mongoose.VirtualType,
         //     // return 10 word message
         // }
+        
 
     }
 );
+
+contactsSchema.virtual("shortMessage")
+  .get(function() {
+      let str=this.message.slice(0, 10);
+    return str;
+  });   
 
 module.exports = mongoose.model("con", contactsSchema);
