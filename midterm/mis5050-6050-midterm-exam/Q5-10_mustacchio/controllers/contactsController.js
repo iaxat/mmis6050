@@ -8,6 +8,7 @@
 
 const { response } = require("express");
 const contacts = require("../models/contacts");
+const nodemailer = require("nodemailer");
 
 module.exports = {
   
@@ -49,7 +50,8 @@ module.exports = {
       datePosted: Date.now()
     };
     contacts.create(contactParams).then(contact => {
-      res.locals.redirect = "/thanks";
+      // res.locals.redirect = "/thanks";
+
       next();
     })
   },
@@ -88,6 +90,42 @@ module.exports = {
           response: response
         });
       })
+  },
+
+  // for nodemailer:
+  // resources used:
+  // https://stackoverflow.com/questions/38024428/error-connect-econnrefused-127-0-0-1465-nodemailer
+  // mail used - mail.com
+
+  mail:(req,res,next)=>{
+    var smtpConfig = {
+      host: 'smtp.mail.com',
+      port: 465,
+      secure: true, // use SSL
+      auth: {
+          user: 'test6050@mail.com',
+          pass: 'test6050@123'
+      }
+  };
+    var sender = nodemailer.createTransport(smtpConfig); 
+      
+    var mail = { 
+      from: "test6050@mail.com", 
+      to: "narazamsa@gmail.com", 
+      subject: "Sending Email Node.js", 
+      text: "New text mail service test"
+    }; 
+      
+    sender.sendMail(mail, function(error, info) { 
+      if (error) { 
+        console.log(error); 
+        
+      } else { 
+        console.log("Email sent successfully: " + info.response); 
+        res.locals.redirect = "/thanks";
+      } 
+      next();
+    });  
   }
 
 

@@ -79,7 +79,7 @@ router.get("/blogposts/:id", blogPostController.styleid,blogPostController.style
 // Question 8
 // 
 router.get("/contacts/new",contactsController.index);
-router.post("/contacts/create", contactsController.create,contactsController.redirectView);
+router.post("/contacts/create", contactsController.create,contactsController.mail,contactsController.redirectView);
 router.get("/thanks", contactsController.thanks);
 router.get("/contacts",contactsController.list,contactsController.listView);
 
