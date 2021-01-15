@@ -4,12 +4,14 @@
 
 "use strict";
 
-const { strict } = require("assert");
-const { stringify } = require("querystring");
+// const { strict } = require("assert");
+// const { stringify } = require("querystring");
+
+const validator=require('validator');
 
 const mongoose = require("mongoose"),
   { Schema } = mongoose;
-
+  
 var contactsSchema = new Schema(
     {
         name : {
@@ -22,10 +24,10 @@ var contactsSchema = new Schema(
             type: String
         },
 
-        email: {
-            type: String,
-            required: true,
-        },
+        // email: {
+        //     type: String,
+        //     required: true,
+        // },
         
         phone: {
             type: String,
@@ -48,7 +50,16 @@ var contactsSchema = new Schema(
 
         dateResponded: {
             type: Date,
-        }
+        },
+        // https://stackoverflow.com/questions/18022365/mongoose-validate-email-syntax/28396238#28396238
+        email:{
+            type:String,
+            validate:{
+                  validator: validator.isEmail,
+                  message: '{VALUE} is not a valid email',
+                  isAsync: false
+                }
+            }
         // shortMessage: {
             // type: mongoose.VirtualType,
         //     // return 10 word message
