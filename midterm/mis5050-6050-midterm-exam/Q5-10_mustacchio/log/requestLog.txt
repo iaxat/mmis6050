@@ -4,3 +4,10 @@ Fri Jan 15 2021 04:49:47 GMT-0700 (Mountain Standard Time) GET request made to: 
 Fri Jan 15 2021 04:49:55 GMT-0700 (Mountain Standard Time) GET request made to: /about
 Fri Jan 15 2021 04:49:55 GMT-0700 (Mountain Standard Time) GET request made to: /css/bootstrap.css
 Fri Jan 15 2021 04:49:55 GMT-0700 (Mountain Standard Time) GET request made to: /css/confetti_cuisine.css
+Fri Jan 15 2021 06:11:34 GMT-0700 (Mountain Standard Time) GET request made to: /about
+Fri Jan 15 2021 06:11:34 GMT-0700 (Mountain Standard Time) GET request made to: /css/bootstrap.css
+Fri Jan 15 2021 06:11:34 GMT-0700 (Mountain Standard Time) GET request made to: /css/confetti_cuisine.css
+Fri Jan 15 2021 06:11:34 GMT-0700 (Mountain Standard Time) GET request made to: /favicon.ico
+Fri Jan 15 2021 06:11:42 GMT-0700 (Mountain Standard Time) GET request made to: /
+Fri Jan 15 2021 06:11:42 GMT-0700 (Mountain Standard Time) GET request made to: /css/bootstrap.css
+Fri Jan 15 2021 06:11:42 GMT-0700 (Mountain Standard Time) GET request made to: /css/confetti_cuisine.css
