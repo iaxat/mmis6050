@@ -148,3 +148,9 @@ Sat Jan 16 2021 18:06:23 GMT-0700 (Mountain Standard Time) GET request made to: 
 Sat Jan 16 2021 18:06:23 GMT-0700 (Mountain Standard Time) GET request made to: /contacts/css/mobile.css
 Sat Jan 16 2021 18:06:23 GMT-0700 (Mountain Standard Time) GET request made to: /contacts/js/mobile.js
 Sat Jan 16 2021 18:06:23 GMT-0700 (Mountain Standard Time) GET request made to: /contacts/images/logo.jpg
+Sat Jan 16 2021 18:34:54 GMT-0700 (Mountain Standard Time) GET request made to: /styles
+Sat Jan 16 2021 18:34:54 GMT-0700 (Mountain Standard Time) GET request made to: /css/bootstrap.css
+Sat Jan 16 2021 18:34:54 GMT-0700 (Mountain Standard Time) GET request made to: /css/confetti_cuisine.css
+Sat Jan 16 2021 18:34:56 GMT-0700 (Mountain Standard Time) GET request made to: /about
+Sat Jan 16 2021 18:34:56 GMT-0700 (Mountain Standard Time) GET request made to: /css/bootstrap.css
+Sat Jan 16 2021 18:34:56 GMT-0700 (Mountain Standard Time) GET request made to: /css/confetti_cuisine.css
