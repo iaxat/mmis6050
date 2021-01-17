@@ -53,7 +53,9 @@ module.exports = {
       // res.locals.redirect = "/thanks";
 
       next();
-    })
+    }).catch(error=>{
+      next(error);
+    });
   },
   thanks:(req,res,next)=>{
     res.render("thanks");
@@ -64,7 +66,9 @@ module.exports = {
     contacts.find({dateResponded: null}).then(lists=>{
     res.locals.lists=lists;
     next(); 
-    })
+    }).catch(error=>{
+      next(error);
+    });
   },
   listView:(req,res)=>{
     res.render("contact-list");
@@ -77,7 +81,9 @@ module.exports = {
         res.render("contact-respond", {
           response: response
         });
-      })
+      }).catch(error=>{
+        next(error);
+      });
   },
   update:(req,res,next)=>{
     console.log(req.body.response);
@@ -89,7 +95,9 @@ module.exports = {
         res.render("contact-respond", {
           response: response
         });
-      })
+      }).catch(error=>{
+        next(error);
+      });
   },
 
 
