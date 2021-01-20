@@ -8,6 +8,7 @@
 
 const { response } = require("express");
 const contacts = require("../models/contacts");
+const nodemailer = require("nodemailer");
 
 module.exports = {
   
@@ -49,9 +50,12 @@ module.exports = {
       datePosted: Date.now()
     };
     contacts.create(contactParams).then(contact => {
-      res.locals.redirect = "/thanks";
+      // res.locals.redirect = "/thanks";
+
       next();
-    })
+    }).catch(error=>{
+      next(error);
+    });
   },
   thanks:(req,res,next)=>{
     res.render("thanks");
@@ -62,7 +66,9 @@ module.exports = {
     contacts.find({dateResponded: null}).then(lists=>{
     res.locals.lists=lists;
     next(); 
-    })
+    }).catch(error=>{
+      next(error);
+    });
   },
   listView:(req,res)=>{
     res.render("contact-list");
@@ -75,7 +81,9 @@ module.exports = {
         res.render("contact-respond", {
           response: response
         });
-      })
+      }).catch(error=>{
+        next(error);
+      });
   },
   update:(req,res,next)=>{
     console.log(req.body.response);
@@ -87,7 +95,49 @@ module.exports = {
         res.render("contact-respond", {
           response: response
         });
-      })
+      }).catch(error=>{
+        next(error);
+      });
+  },
+
+
+  // Q 10  - Nodemailer used:
+  // for nodemailer:
+  // resources used:
+  // https://www.geeksforgeeks.org/how-to-send-attachments-and-email-using-nodemailer-in-node-js/
+  // https://stackoverflow.com/questions/38024428/error-connect-econnrefused-127-0-0-1465-nodemailer
+  // https://www.geeksforgeeks.org/how-to-send-email-with-nodemailer-using-gmail-account-in-node-js/
+  // https://www.codegrepper.com/code-examples/javascript/nodemailer+step+by+step+example
+  // mail used - mail.com
+
+  mail:(req,res,next)=>{
+    var smtpConfig = {
+      host: 'smtp.mail.com',
+      port: 465,
+      secure: true,
+      auth: {
+          user: 'test6050@mail.com',
+          pass: 'test6050@123'
+      }
+  };
+    var sender = nodemailer.createTransport(smtpConfig); 
+      
+    var mail = { 
+      from: "test6050@mail.com", 
+      to: "narazamsa@gmail.com", 
+      subject: "Sending Email Node.js", 
+      text: "New text mail service test"
+    }; 
+      
+    sender.sendMail(mail, function(error, info) { 
+      if (error) { 
+        console.log(error); 
+      } else { 
+        console.log("Email sent successfully: " + info.response); 
+        res.locals.redirect = "/thanks";
+      } 
+      next();
+    });  
   }
 
 

@@ -15,7 +15,8 @@ const express = require("express"),
     mongoose = require("mongoose"),
     homeController = require("./controllers/homeController"),
     styleController = require("./controllers/styleController"),
-    blogPostController = require("./controllers/blogPostsController")
+    blogPostController = require("./controllers/blogPostsController"),
+    errorController=require("./controllers/errorController")
     ;
 
 
@@ -79,12 +80,18 @@ router.get("/blogposts/:id", blogPostController.styleid,blogPostController.style
 // Question 8
 // 
 router.get("/contacts/new",contactsController.index);
-router.post("/contacts/create", contactsController.create,contactsController.redirectView);
+router.post("/contacts/create", contactsController.create,contactsController.mail,contactsController.redirectView);
 router.get("/thanks", contactsController.thanks);
 router.get("/contacts",contactsController.list,contactsController.listView);
 
 router.get("/contacts/:id/edit",contactsController.edit);
 router.post("/contacts/:id/update",contactsController.update);
+
+
+// 
+router.use(errorController.logErrors);
+router.use(errorController.respondNoResourceFound);
+router.use(errorController.respondInternalError);
 
 app.use("/", router);
 
