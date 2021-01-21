@@ -27,7 +27,7 @@ var blogSchema = new Schema(
         imageUrl: {
             type: String,
             required: true,
-            allowedFormats: ["jpg","png"]
+            match: /^.*\.(jpg|JPG|png|PNG)$/,
 
         },
 

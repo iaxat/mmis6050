@@ -23,11 +23,6 @@ var contactsSchema = new Schema(
         address: {
             type: String
         },
-
-        // email: {
-        //     type: String,
-        //     required: true,
-        // },
         
         phone: {
             type: String,
@@ -60,12 +55,6 @@ var contactsSchema = new Schema(
                   isAsync: false
                 }
             }
-        // shortMessage: {
-            // type: mongoose.VirtualType,
-        //     // return 10 word message
-        // }
-        
-
     }
 );
 
