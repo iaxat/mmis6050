@@ -40,4 +40,3 @@ var blogSchema = new Schema(
 );
 
 module.exports = mongoose.model("blogPost", blogSchema);
-

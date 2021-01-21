@@ -7,6 +7,7 @@ const Mustache = require("../models/mustache");
 
 module.exports = {
   
+  // fetches data of all styles from Mustache schema
   index: (req, res, next) => {
     Mustache.find()
       .then(styles => {
@@ -28,7 +29,7 @@ module.exports = {
     else next();
   },
 
-
+// fetching individual style
   styleid: (req,res,next) => {
     let id=req.params.id;
     Mustache.findById(id)

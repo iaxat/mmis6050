@@ -12,6 +12,7 @@ const nodemailer = require("nodemailer");
 
 module.exports = {
   
+// renders form for contact request
   index: (req, res) => {
     res.render("contact");
   },
@@ -40,6 +41,7 @@ module.exports = {
     res.render("contacts");
   },
 
+  // puts contact request data in contact schema and redirects to email sender when successful 
   create: (req,res,next)=>{
     let contactParams = {
       name: req.body.name,
@@ -60,8 +62,10 @@ module.exports = {
   thanks:(req,res,next)=>{
     res.render("thanks");
   },
+
+// fetches contact request list
+
   list:(req,res,next) =>{
-    console.log("kbjshb");
 
     contacts.find({dateResponded: null}).then(lists=>{
     res.locals.lists=lists;
@@ -74,6 +78,7 @@ module.exports = {
     res.render("contact-list");
   },
 
+  // shows specific contact request
   edit: (req, res) => {
     let Id = req.params.id;
     contacts.findById(Id)
@@ -85,6 +90,7 @@ module.exports = {
         next(error);
       });
   },
+  //  records response by admin
   update:(req,res,next)=>{
     console.log(req.body.response);
     let Id = req.body.id;
@@ -110,6 +116,7 @@ module.exports = {
   // https://www.codegrepper.com/code-examples/javascript/nodemailer+step+by+step+example
   // mail used - mail.com
 
+  // sends email to admin updating about a contact request
   mail:(req,res,next)=>{
     var smtpConfig = {
       host: 'smtp.mail.com',

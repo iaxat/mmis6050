@@ -1,12 +1,11 @@
-// Derived from styleController.js
-// Question 7
-
 "use strict";
 
 const blogPost = require("../models/blogPost");
 
 module.exports = {
   
+  // fetching all styles from blogpost
+
   index: (req, res, next) => {
     blogPost.find()
       .then(styles => {
@@ -28,6 +27,7 @@ module.exports = {
     else next();
   },
 
+  // fetching individual style from blog
 
   styleid: (req,res,next) => {
     let id=req.params.id;
