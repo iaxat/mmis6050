@@ -22,6 +22,7 @@ const express = require("express"),
 
 mongoose.Promise=global.Promise;
 
+// database connection
 mongoose.connect(
 "mongodb+srv://root:root@akshat.y9onm.mongodb.net/qwer?retryWrites=true&w=majority",
 { useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true} /*advice by terminal for depricated method*/
@@ -59,36 +60,31 @@ router.use(
 );
 router.use(express.json());
 
-// log from module 5.1
+// routes for log request
 router.use(homeController.logRequestPaths);
 
-// created
+// routes for home controller
 router.get("/", homeController.index);
 router.get("/about", homeController.about);
 
-// router.get("/newStyle",styleController.new);
-// router.post("/create",styleController.create, styleController.redirectView);
-
-// Question 6
+// routes for style controller
 router.get("/styles",styleController.index,styleController.indexView);
 router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 
-// Question 7 
-router.get("/blogposts",blogPostController.index,blogPostController.indexView);
+// routes for blogpost controller
+router.get("/blogposts", blogPostController.index, blogPostController.indexView);
 router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
 
-// Question 8
-// 
+// routes for contact controller
 router.get("/contacts/new",contactsController.index);
 router.post("/contacts/create", contactsController.create,contactsController.mail,contactsController.redirectView);
 router.get("/thanks", contactsController.thanks);
 router.get("/contacts",contactsController.list,contactsController.listView);
-
 router.get("/contacts/:id/edit",contactsController.edit);
 router.post("/contacts/:id/update",contactsController.update);
 
 
-// 
+// routes for error controller
 router.use(errorController.logErrors);
 router.use(errorController.respondNoResourceFound);
 router.use(errorController.respondInternalError);
@@ -100,4 +96,3 @@ app.use("/", router);
 app.listen(app.get("port"), () => {
   console.log(`Server running at http://localhost:${app.get("port")}`);
 });
-

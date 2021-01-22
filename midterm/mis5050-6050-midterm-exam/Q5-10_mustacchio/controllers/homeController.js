@@ -5,12 +5,17 @@
 const fs=require('fs');
 
 module.exports = {
+  // renders home page
   index: (req, res) => {
     res.render("index");
   },
+
+  // renders about page
   about: (req, res) => {
     res.render("about");
   },
+
+  // logs all log request to a file named requestLog.txt
   logRequestPaths: (req, res, next) => {
     // console.log(req.method)
     let today =  new Date();
