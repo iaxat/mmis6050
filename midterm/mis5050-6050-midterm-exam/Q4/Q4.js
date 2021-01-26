@@ -10,7 +10,10 @@
 
 const fs = require("fs");
 
+
 const filename = "working.txt";
+
+
 
 const createFileAsync = (filename, content, callback) => {
     fs.writeFile(filename, content, (error) => {
@@ -22,6 +25,9 @@ const createFileAsync = (filename, content, callback) => {
     });
 };
 
+
+
+
 const appendFileAsync = (filename, content, callback) => {
     fs.appendFile(filename, content, (error) => {
         if (error) {
@@ -31,6 +37,9 @@ const appendFileAsync = (filename, content, callback) => {
         }
     });
 };
+
+
+
 
 const readFileSAsync = (filename, callback) => {
     fs.readFile(filename, "Utf8", (error, contents) => {
@@ -43,6 +52,9 @@ const readFileSAsync = (filename, callback) => {
     });
 };
 
+
+
+
 const renameFileSAsync = (currentName, newName, callback) => {
     fs.rename(currentName, newName, (error) => {
         if (error) {
@@ -52,6 +64,10 @@ const renameFileSAsync = (currentName, newName, callback) => {
         }
     });
 };
+
+
+
+
 
 createFileAsync(filename, " hi I have created a file ", (error, result) => {
     if (error) {
@@ -84,5 +100,7 @@ createFileAsync(filename, " hi I have created a file ", (error, result) => {
     }
 });
 
-console.log('Starting the Program');
 
+
+
+console.log('Starting the Program');
