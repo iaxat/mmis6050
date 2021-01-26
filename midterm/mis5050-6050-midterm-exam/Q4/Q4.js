@@ -3,7 +3,7 @@
 
 // Resources Used: Class lecture Module 1.1
 // Online resource : Stack Overflow
-// Video lecture In-class - Module 1.1
+// Video lecture In-class - Module 1.1 + codes
 
 // program starts here
 
@@ -44,6 +44,7 @@ const appendFileAsync = (filename, content, callback) => {
 const readFileSAsync = (filename, callback) => {
     fs.readFile(filename, "Utf8", (error, contents) => {
         if (error) {
+            // console.log("test")
             callback("error reading file : "+error.message, undefined)
         } else {
             console.log(contents);
@@ -58,6 +59,7 @@ const readFileSAsync = (filename, callback) => {
 const renameFileSAsync = (currentName, newName, callback) => {
     fs.rename(currentName, newName, (error) => {
         if (error) {
+            // console.log("check")
             callback("error renaming the file : " + error.message, undefined)
         } else {
             callback(undefined, " file renamed");
