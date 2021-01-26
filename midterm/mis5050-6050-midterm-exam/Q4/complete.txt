@@ -1,2 +1,0 @@
- hi I have created a file 
- appending some extra line
