@@ -1,6 +1,8 @@
 // The main.js
 // The questions 5 to 10 ar solved in this section
 // Resources used: online, class lectures, in class assignments
+// stackoverflow - syntax and logic
+// geeksforgeeks - syntax
 
 
 
