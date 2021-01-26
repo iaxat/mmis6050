@@ -2,10 +2,13 @@
 // The questions 5 to 10 ar solved in this section
 // Resources used: online, class lectures, in class assignments
 
+
+
 "use strict";
 
 const { redirectView } = require("./controllers/contactsController");
 const contactsController = require("./controllers/contactsController");
+
 
 const express = require("express"),
     app = express(),
@@ -25,7 +28,7 @@ mongoose.Promise=global.Promise;
 // database connection
 mongoose.connect(
 "mongodb+srv://root:root@akshat.y9onm.mongodb.net/qwer?retryWrites=true&w=majority",
-{ useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true} /*advice by terminal for depricated method*/
+{ useNewUrlParser: true, useCreateIndex:true, useUnifiedTopology: true} /*advice by terminal for deprecated method*/
 );
 
 
@@ -71,7 +74,7 @@ router.get("/about", homeController.about);
 router.get("/styles",styleController.index,styleController.indexView);
 router.get("/styles/:id",styleController.styleid,styleController.styleidView);
 
-// routes for blogpost controller
+// routes for blog-post controller
 router.get("/blogposts", blogPostController.index, blogPostController.indexView);
 router.get("/blogposts/:id", blogPostController.styleid,blogPostController.styleidView);
 
