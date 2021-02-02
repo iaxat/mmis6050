@@ -123,8 +123,8 @@ module.exports = {
       port: 465,
       secure: true,
       auth: {
-          user: 'test6050@mail.com',
-          pass: 'test6050@123'
+          // user: 'removed the credentials',
+          // pass: 'removed credentials'
       }
   };
     var sender = nodemailer.createTransport(smtpConfig); 
