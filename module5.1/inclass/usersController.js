@@ -252,10 +252,6 @@ module.exports = {
   }
 
 
-
-
-
-
   //OLD VERSION!!!!
   
   // validate: (req, res, next) => {
@@ -289,10 +285,6 @@ module.exports = {
   //     }
   //   });
   // }
-
-
-
-
 
 
 };
