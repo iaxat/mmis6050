@@ -13,13 +13,25 @@ const express = require("express"),
   coursesController = require("./controllers/coursesController"),
   Subscriber = require("./models/subscriber");
 
+const expressSession = require("express-session"),  
+  connectFlash = require("connect-flash");      
+router.use(expressSession({
+  secret: "secret_passcode",
+  cookie: {
+    maxAge: 4000000
+  },
+  resave: false,
+  saveUninitialized: false
+}));                                  
+
+router.use(connectFlash());  
+
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/module5?retryWrites=true&w=majority",
   { useNewUrlParser: true, useCreateIndex: true }
 );
-
 
 const db = mongoose.connection;
 
@@ -47,8 +59,17 @@ router.use(
 router.use(express.json());
 router.use(homeController.logRequestPaths);
 
+router.use((req, res, next) => {
+  res.locals.flashMessages = req.flash();
+  next();
+});
+
 router.get("/", homeController.index);
 router.get("/contact", homeController.getSubscriptionPage);
+
+router.get("/users/login", usersController.login);              
+router.post("/users/login", usersController.authenticate,
+ usersController.redirectView); 
 
 router.get("/users", usersController.index, usersController.indexView);
 router.get("/users/new", usersController.new);
@@ -57,6 +78,9 @@ router.get("/users/:id/edit", usersController.edit);
 router.put("/users/:id/update", usersController.update, usersController.redirectView);
 router.delete("/users/:id/delete", usersController.delete, usersController.redirectView);
 router.get("/users/:id", usersController.show, usersController.showView);
+
+
+
 
 router.get("/subscribers", subscribersController.index, subscribersController.indexView);
 router.get("/subscribers/new", subscribersController.new);
