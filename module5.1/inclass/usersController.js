@@ -1,4 +1,8 @@
+// Submission File In-class Module 5.1
+
+
 "use strict";
+
 
 const {check, validationResult} = require("express-validator");
 const User = require("../models/user"),
@@ -14,7 +18,10 @@ const User = require("../models/user"),
     };
   };
 
+
 module.exports = {
+
+
   // index: (req, res, next) => {
   //   User.find()
   //     .then(users => {
@@ -27,6 +34,7 @@ module.exports = {
   //     });
   // },
 
+
   index: async (req, res, next) => {
     try {
       const users = await User.find();
@@ -38,6 +46,7 @@ module.exports = {
     }
   },
   
+
   indexView: (req, res) => {
     res.render("users/index"
     // , {
@@ -47,9 +56,14 @@ module.exports = {
     // }
     );
   },
+
+
   new: (req, res) => {
     res.render("users/new");
   },
+
+
+
   // create: (req, res, next) => {
   //   if (req.skip) next();
   //   let userParams = getUserParams(req.body);
@@ -68,10 +82,15 @@ module.exports = {
   //     });
   // },
 
+
+
+
    create: async (req, res, next) => {
     // if (req.skip) next();
     let userParams = getUserParams(req.body);
     
+     
+     
      const users = await User.create(userParams);
      try {
        req.flash("success", `${user.fullName}'s account created successfully!`);
@@ -86,11 +105,14 @@ module.exports = {
      }
   },
 
+   
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
     if (redirectPath) res.redirect(redirectPath);
     else next();
   },
+
+
   show: (req, res, next) => {
     let userId = req.params.id;
     User.findById(userId)
@@ -103,9 +125,13 @@ module.exports = {
         next(error);
       });
   },
+
+
   showView: (req, res) => {
     res.render("users/show");
   },
+
+
   edit: (req, res, next) => {
     let userId = req.params.id;
     User.findById(userId)
@@ -119,6 +145,8 @@ module.exports = {
         next(error);
       });
   },
+
+
   update: (req, res, next) => {
     let userId = req.params.id,
       userParams = {
@@ -130,6 +158,9 @@ module.exports = {
         password: req.body.password,
         zipCode: req.body.zipCode
       };
+    
+    
+    
     User.findByIdAndUpdate(userId, {
       $set: userParams
     })
@@ -143,6 +174,8 @@ module.exports = {
         next(error);
       });
   },
+
+
   delete: (req, res, next) => {
     let userId = req.params.id;
     User.findByIdAndRemove(userId)
@@ -155,9 +188,13 @@ module.exports = {
         next();
       });
   },
+
+
   login: (req, res) => {
     res.render("users/login");
   },
+
+
   authenticate: (req, res, next) => {
     User.findOne({ email: req.body.email })
       .then(user => {
@@ -185,6 +222,8 @@ module.exports = {
       });
   },
 
+
+
   validate: async (req, res, next) => {                                    
     await check("email").normalizeEmail({
       all_lowercase: true
@@ -197,6 +236,8 @@ module.exports = {
     }).equals(req.body.zipCode).run(req);                                     
     await check("password", "Password cannot be empty").notEmpty().run(req);    
   
+
+
     const error = validationResult(req);                     
       if (!error.isEmpty()) {
         let messages = error.array().map(e => e.msg);
@@ -209,6 +250,12 @@ module.exports = {
       }
     
   }
+
+
+
+
+
+
   //OLD VERSION!!!!
   
   // validate: (req, res, next) => {
@@ -242,4 +289,10 @@ module.exports = {
   //     }
   //   });
   // }
+
+
+
+
+
+
 };
