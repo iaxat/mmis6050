@@ -23,7 +23,6 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
-
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
