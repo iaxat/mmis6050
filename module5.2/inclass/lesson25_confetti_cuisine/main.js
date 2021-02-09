@@ -19,7 +19,7 @@ const express = require("express"),
   User = require("./models/user");
 
 mongoose.connect(
-  "mongodb://localhost:27017/confetti_cuisine",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_25?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
