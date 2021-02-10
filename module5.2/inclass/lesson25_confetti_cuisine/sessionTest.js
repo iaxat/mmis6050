@@ -3,6 +3,7 @@ module.exports = {
         // log session info to console
         console.log("Session ID: ", req.session.id);
         console.log("Session data: ", req.session);
+        console.log("User data: ", req.user);
         next();
     },
 
