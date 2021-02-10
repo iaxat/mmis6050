@@ -10,7 +10,7 @@ const User = require("../models/user"),
         last: body.last
       },
       email: body.email,
-      password: body.password,
+      // password: body.password,
       zipCode: body.zipCode
     };
   };
@@ -35,20 +35,22 @@ module.exports = {
   },
   create: (req, res, next) => {
     if (req.skip) next();
-    let userParams = getUserParams(req.body);
-    User.create(userParams)
-      .then(user => {
-        req.flash("success", `${user.fullName}'s account created successfully!`);
+
+    let newUser = new User(getUserParams(req.body));
+
+    User.register(newUser, req.body.password, (error, user) => {
+      if (user) {
+        req.flash("success", `${user.fullName}'s account created
+ successfully!`);
         res.locals.redirect = "/users";
-        res.locals.user = user;
         next();
-      })
-      .catch(error => {
-        console.log(`Error saving user: ${error.message}`);
+      } else {
+        req.flash("error", `Failed to create user account because:
+ ${error.message}.`);
         res.locals.redirect = "/users/new";
-        req.flash("error", `Failed to create user account because: ${error.message}.`);
         next();
-      });
+      }
+    });
   },
   redirectView: (req, res, next) => {
     let redirectPath = res.locals.redirect;
