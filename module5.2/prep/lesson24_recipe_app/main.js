@@ -16,6 +16,9 @@ const express = require("express"),
   usersController = require("./controllers/usersController"),
   coursesController = require("./controllers/coursesController");
 
+  const passport = require("passport");
+// passport
+
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
@@ -23,11 +26,14 @@ mongoose.connect(
   { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }
 );
 
+
 const db = mongoose.connection;
+
 
 db.once("open", () => {
   console.log("Successfully connected to MongoDB using Mongoose!");
 });
+
 
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
@@ -61,6 +67,13 @@ router.use(
 
 
 router.use(connectFlash());
+
+
+// 24.1
+router.use(passport.initialize());
+router.use(passport.session());
+
+
 
 router.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
