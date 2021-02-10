@@ -18,6 +18,9 @@ const express = require("express"),
   connectFlash = require("connect-flash"),
   User = require("./models/user");
 
+  const sessionTest = require("./sessionTest");
+
+
 mongoose.connect(
   "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_25?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
