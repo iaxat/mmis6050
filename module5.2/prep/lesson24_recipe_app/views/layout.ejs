@@ -30,7 +30,12 @@
 			</a>
 		</div>
 		<div class="login-status">
-			<!--  ADD CODE FOR LOGIN/LOGOUT HERE  (Listing 24.6) -->
+			<% if (loggedIn) { %>
+  				Logged in as  <a href="<%=`/users/${currentUser._id}`%>">
+ 				<%= currentUser.fullName %></a>
+			<%} else {%>
+  				<a href="/users/login">Log In</a>
+			<% } %>
 		</div>
 	</div>
 
