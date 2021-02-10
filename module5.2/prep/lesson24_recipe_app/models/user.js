@@ -3,7 +3,6 @@
 
 const passportLocalMongoose = require("passport-local-mongoose")
 
-
 const mongoose = require("mongoose"),
   { Schema } = mongoose,
   Subscriber = require("./subscriber"),
@@ -25,10 +24,6 @@ const mongoose = require("mongoose"),
         required: true,
         lowercase: true,
         unique: true
-      },
-      password: {
-        type: String,
-        required: true
       },
       zipCode: {
         type: Number,
@@ -87,6 +82,14 @@ userSchema.methods.passwordComparison = function(inputPassword) {
   let user = this;
   return bcrypt.compare(inputPassword, user.password);
 };
+
+
+
+
+userSchema.plugin(passportLocalMongoose, {
+  usernameField: "email"
+});
+
 
 
 module.exports = mongoose.model("User", userSchema);
