@@ -16,6 +16,7 @@ const express = require("express"),
   usersController = require("./controllers/usersController"),
   coursesController = require("./controllers/coursesController");
 
+  const User = require("./models/user");
   const passport = require("passport");
 // passport
 
@@ -72,7 +73,9 @@ router.use(connectFlash());
 // 24.1
 router.use(passport.initialize());
 router.use(passport.session());
-
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 
 router.use((req, res, next) => {
