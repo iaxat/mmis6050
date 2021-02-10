@@ -76,6 +76,11 @@ router.use((req, res, next) => {
   next();
 });
 
+// log session router.use
+router.use(sessionTest.logSession);
+router.use(sessionTest.logVisitCount);
+
+
 router.get("/", homeController.index);
 
 router.get("/users", usersController.index, usersController.indexView);
