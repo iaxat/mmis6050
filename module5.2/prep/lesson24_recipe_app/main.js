@@ -19,7 +19,7 @@ const express = require("express"),
 mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "CONNECTION STRING HERE",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_24?retryWrites=true&w=majority",
   { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }
 );
 
