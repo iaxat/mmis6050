@@ -1,5 +1,4 @@
 "use strict";
-const passport = require("passport")
 
 const {check, validationResult} = require("express-validator");
 const User = require("../models/user"),
@@ -127,7 +126,7 @@ module.exports = {
     res.render("users/login");
   },
 
-  
+
   authenticate: passport.authenticate("local", {
     failureRedirect: "/users/login",
     failureFlash: "Failed to login.",
