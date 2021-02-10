@@ -18,6 +18,9 @@ const express = require("express"),
   connectFlash = require("connect-flash"),
   User = require("./models/user");
 
+
+  const MongoStore = require("connect-mongo")(expressSession);
+  
   const sessionTest = require("./sessionTest");
 
 
@@ -53,7 +56,8 @@ router.use(
       maxAge: 4000000
     },
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new MongoStore({mongooseConnection: mongoose.connection})
   })
 );
 router.use(connectFlash());
