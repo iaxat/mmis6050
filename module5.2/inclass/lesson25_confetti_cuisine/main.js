@@ -80,6 +80,8 @@ router.use((req, res, next) => {
 router.use(sessionTest.logSession);
 router.use(sessionTest.logVisitCount);
 
+router.get("/destroysession", sessionTest.destroySession);
+
 
 router.get("/", homeController.index);
 

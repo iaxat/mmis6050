@@ -16,5 +16,15 @@ module.exports = {
             console.log('first request');
         }
         next();
+    },
+
+    destroySession: (req, res, next) => {
+        req.session.destroy((err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Session Destroyed");
+            }
+        })
     }
 };
