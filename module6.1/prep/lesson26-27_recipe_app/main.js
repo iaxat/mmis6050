@@ -1,10 +1,11 @@
-
 "use strict";
+
+
 
 const express = require("express"),
   app = express(),
-  router = require("./routes/index")
-  // router = express.Router(),
+  // router = require("./routes/index")
+  router = express.Router(),
   layouts = require("express-ejs-layouts"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override"),
@@ -37,23 +38,23 @@ db.once("open", () => {
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
-app.use(express.static("public"));
-app.use(layouts);
-app.use(
+router.use(express.static("public"));
+router.use(layouts);
+router.use(
   express.urlencoded({
     extended: false
   })
 );
 
-app.use(
+router.use(
   methodOverride("_method", {
     methods: ["POST", "GET"]
   })
 );
 
-app.use(express.json());
-app.use(cookieParser("secret_passcode"));
-app.use(
+router.use(express.json());
+router.use(cookieParser("secret_passcode"));
+router.use(
   expressSession({
     secret: "secret_passcode",
     cookie: {
@@ -64,21 +65,21 @@ app.use(
   })
 );
 
-app.use(passport.initialize());
-app.use(passport.session());
+router.use(passport.initialize());
+router.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-app.use(connectFlash());
+router.use(connectFlash());
 
-app.use((req, res, next) => {
+router.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   res.locals.currentUser = req.user;
   res.locals.flashMessages = req.flash();
   next();
 });
-//app.use(expressValidator());
-app.use(homeController.logRequestPaths);
+//router.use(expressValidator());
+router.use(homeController.logRequestPaths);
 
 router.get("/", homeController.index);
 router.get("/contact", homeController.getSubscriptionPage);
@@ -130,9 +131,9 @@ router.get("/courses/:id", coursesController.show, coursesController.showView);
 
 router.post("/subscribe", subscribersController.saveSubscriber);
 
-app.use(errorController.logErrors);
-app.use(errorController.respondNoResourceFound);
-app.use(errorController.respondInternalError);
+router.use(errorController.logErrors);
+router.use(errorController.respondNoResourceFound);
+router.use(errorController.respondInternalError);
 
 app.use("/", router);
 
