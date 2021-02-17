@@ -8,10 +8,14 @@
 	<link rel="shortcut icon" type="image/png" href="/images/icon.png" />
 	<link rel="stylesheet" href="/css/bootstrap.css">
 	<link rel="stylesheet" href="/css/recipe_app.css">
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/js/recipeApp.js"></script>
 </head>
 
 <body>
 	<div id="nav">
+		<%- include("courses/_coursesModal") %>
 		<div class="col-sm nav-align">
 			<h1 id="title">Recipe App</h1>
 		</div>
@@ -28,6 +32,7 @@
 			<a href="/users">
 				<span class="button">Users</span>
 			</a>
+			
 		</div>
 		<div class="login-status">
 			<% if (loggedIn) { %>
