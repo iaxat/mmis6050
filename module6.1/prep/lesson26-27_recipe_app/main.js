@@ -1,5 +1,5 @@
 "use strict";
-
+const router = require("./routes/index")
 const express = require("express"),
   app = express(),
   router = express.Router(),
