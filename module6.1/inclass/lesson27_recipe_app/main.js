@@ -18,6 +18,8 @@ const express = require("express"),
   coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
 
+  const axios = require("axios");
+
 //mongoose.Promise = global.Promise;
 
 
@@ -78,6 +80,22 @@ app.use((req, res, next) => {
   next();
 });
 //app.use(expressValidator());
+
+
+
+// inclass
+app.get("/genderize", async (req,res) => {
+  let query = "https://api.genderize.io/?name=" + req.query.name;
+  try {
+    let result = await axios.get(query);
+    res.json(result.data);
+    
+  } catch (error) {
+    res.send("Something went wrong");
+  }
+  
+})
+
 
 app.use("/", router);
 
