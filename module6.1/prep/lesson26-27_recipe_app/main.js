@@ -21,7 +21,7 @@ const express = require("express"),
 
 
 mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_25?retryWrites=true&w=majority",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_26?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
