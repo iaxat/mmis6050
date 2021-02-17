@@ -1,8 +1,10 @@
+
 "use strict";
-const router = require("./routes/index")
+
 const express = require("express"),
   app = express(),
-  router = express.Router(),
+  router = require("./routes/index")
+  // router = express.Router(),
   layouts = require("express-ejs-layouts"),
   mongoose = require("mongoose"),
   methodOverride = require("method-override"),
@@ -11,11 +13,11 @@ const express = require("express"),
   connectFlash = require("connect-flash"),
   expressValidator = require("express-validator"),
   passport = require("passport"),
-  errorController = require("./controllers/errorController"),
-  homeController = require("./controllers/homeController"),
-  subscribersController = require("./controllers/subscribersController"),
-  usersController = require("./controllers/usersController"),
-  coursesController = require("./controllers/coursesController"),
+  // errorController = require("./controllers/errorController"),
+  // homeController = require("./controllers/homeController"),
+  // subscribersController = require("./controllers/subscribersController"),
+  // usersController = require("./controllers/usersController"),
+  // coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
 
 
@@ -35,23 +37,23 @@ db.once("open", () => {
 app.set("port", process.env.PORT || 3000);
 app.set("view engine", "ejs");
 
-router.use(express.static("public"));
-router.use(layouts);
-router.use(
+app.use(express.static("public"));
+app.use(layouts);
+app.use(
   express.urlencoded({
     extended: false
   })
 );
 
-router.use(
+app.use(
   methodOverride("_method", {
     methods: ["POST", "GET"]
   })
 );
 
-router.use(express.json());
-router.use(cookieParser("secret_passcode"));
-router.use(
+app.use(express.json());
+app.use(cookieParser("secret_passcode"));
+app.use(
   expressSession({
     secret: "secret_passcode",
     cookie: {
@@ -62,21 +64,21 @@ router.use(
   })
 );
 
-router.use(passport.initialize());
-router.use(passport.session());
+app.use(passport.initialize());
+app.use(passport.session());
 passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
-router.use(connectFlash());
+app.use(connectFlash());
 
-router.use((req, res, next) => {
+app.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   res.locals.currentUser = req.user;
   res.locals.flashMessages = req.flash();
   next();
 });
-//router.use(expressValidator());
-router.use(homeController.logRequestPaths);
+//app.use(expressValidator());
+app.use(homeController.logRequestPaths);
 
 router.get("/", homeController.index);
 router.get("/contact", homeController.getSubscriptionPage);
@@ -128,9 +130,9 @@ router.get("/courses/:id", coursesController.show, coursesController.showView);
 
 router.post("/subscribe", subscribersController.saveSubscriber);
 
-router.use(errorController.logErrors);
-router.use(errorController.respondNoResourceFound);
-router.use(errorController.respondInternalError);
+app.use(errorController.logErrors);
+app.use(errorController.respondNoResourceFound);
+app.use(errorController.respondInternalError);
 
 app.use("/", router);
 
