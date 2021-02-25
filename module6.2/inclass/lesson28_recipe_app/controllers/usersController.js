@@ -222,12 +222,12 @@ module.exports = {
         if (req.originalUrl === "/users/login") {
           req.session.token = signedToken;
           next();
-        }
-
+        } else {
         res.json({
           success: true,
           token: signedToken
         });
+      }
       } else
         res.json({
           success: false,
@@ -236,7 +236,7 @@ module.exports = {
     })(req, res, next);
   },
   verifyJWT: (req, res, next) => {
-    let token = req.header("Authorization").replace("Bearer ", "");
+    let token = req.header("Authorization") ? req.header("Authorization").replace("Bearer ", "") : req.session.token;
     if (token) {
       jsonWebToken.verify(token, "secret_encoding_passphrase", (errors, payload) => {
         if (payload) {
