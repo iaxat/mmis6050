@@ -17,6 +17,7 @@ const express = require("express"),
   usersController = require("./controllers/usersController"),
   coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
+  const axios = require("axios");
 
 //mongoose.Promise = global.Promise;
 
@@ -77,6 +78,31 @@ app.use((req, res, next) => {
   next();
 });
 //app.use(expressValidator());
+
+const apiUrl = "https://the-one-api.dev/v2";
+const apiKey = "MKGT3QAY3uIpIHhLHcU7";
+
+app.get("/lotr/book", async (req, res) => {
+  try {
+    let result = await axios.get('${apiUrl}/book');
+    res.send(result.data);
+  } catch (error) {
+    res.send(error);
+  }
+});
+
+app.get("/lotr/movie", async (req, res) => {
+  try {
+    let result = await axios.get('${apiUrl}/movie', {
+      headers: {
+        Authorization:'Bearer ${apiKey}'
+      }
+    });
+    res.send(result.data);
+  } catch (error) {
+    res.send(error);
+  }
+});
 
 app.use("/", router);
 
