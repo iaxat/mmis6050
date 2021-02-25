@@ -12,7 +12,7 @@ router.post(
   usersController.redirectView
 );
 router.get("/login", usersController.login);
-router.post("/login", usersController.authenticate);
+router.post("/login", usersController.apiAuthenticate, usersController.authenticate);
 router.get("/logout", usersController.logout, usersController.redirectView);
 router.get("/:id/edit", usersController.edit);
 router.put("/:id/update", usersController.update, usersController.redirectView);

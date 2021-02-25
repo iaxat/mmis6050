@@ -217,6 +217,13 @@ module.exports = {
           },
           "secret_encoding_passphrase"
         );
+
+        // check to see if request came from web application or external api call
+        if (req.originalUrl === "/users/login") {
+          req.session.token = signedToken;
+          next();
+        }
+
         res.json({
           success: true,
           token: signedToken
@@ -229,7 +236,7 @@ module.exports = {
     })(req, res, next);
   },
   verifyJWT: (req, res, next) => {
-    let token = req.headers.token;
+    let token = req.header("Authorization").replace("Bearer ", "");
     if (token) {
       jsonWebToken.verify(token, "secret_encoding_passphrase", (errors, payload) => {
         if (payload) {

@@ -22,7 +22,7 @@ const express = require("express"),
 
 
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_28?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
@@ -44,6 +44,9 @@ app.use(
     extended: false
   })
 );
+
+// comment
+app.set("token", process.env.TOKEN || "recipeT0k3n")
 
 app.use(
   methodOverride("_method", {

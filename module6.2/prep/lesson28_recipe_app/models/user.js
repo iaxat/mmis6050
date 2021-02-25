@@ -5,6 +5,7 @@ const mongoose = require("mongoose"),
   Subscriber = require("./subscriber"),
   bcrypt = require("bcrypt"),
   passportLocalMongoose = require("passport-local-mongoose"),
+  randToken = require ("rand-token"),
   userSchema = new Schema(
     {
       name: {
@@ -65,5 +66,9 @@ userSchema.pre("save", function(next) {
 userSchema.plugin(passportLocalMongoose, {
   usernameField: "email"
 });
-
+userSchema.pre("save", function(next) {
+  let user = this;
+  if (!user.apiToken) user.apiToken =randToken.generate(16);                 
+  next();
+});
 module.exports = mongoose.model("User", userSchema);
