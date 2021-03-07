@@ -22,7 +22,7 @@ const express = require("express"),
 //mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe28_inclass?retryWrites=true&w=majority",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe28_inclass_module71?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
