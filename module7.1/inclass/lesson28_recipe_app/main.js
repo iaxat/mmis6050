@@ -18,6 +18,7 @@ const express = require("express"),
   coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
   const axios = require("axios");
+  require("dotenv").config();
 
 //mongoose.Promise = global.Promise;
 
@@ -91,13 +92,16 @@ app.get("/lotr/book", async (req, res) => {
   }
 });
 
+// Create a custom Axios instance with Authorization header information
+const lotrAxios = axios.create({
+  baseUrl: apiUrl,
+  headers: {Authorization: 'Bearer ${apiKey}'}
+})
+
+// Make an auth request from lotr API using custom Axios instance
 app.get("/lotr/movie", async (req, res) => {
   try {
-    let result = await axios.get('${apiUrl}/movie', {
-      headers: {
-        Authorization:'Bearer ${apiKey}'
-      }
-    });
+    let result = await lotrAxios.get('/movie');
     res.send(result.data);
   } catch (error) {
     res.send(error);
