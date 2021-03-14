@@ -14,7 +14,7 @@ module.exports = io => {
       });
 
     client.on("disconnect", () => {
-      client.broadcast.emit("user disconnected");
+      client.broadcast.emit("user disconnected" {username:something});
       console.log("user disconnected");
     });
 
