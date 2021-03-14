@@ -19,11 +19,11 @@ const express = require("express"),
   User = require("./models/user");
 
   require("dotenv").config();
-  
+
 //mongoose.Promise = global.Promise;
 
 mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_32?retryWrites=true&w=majority",
+  process.env.MONGODB_URI,
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
