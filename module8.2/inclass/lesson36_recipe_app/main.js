@@ -20,12 +20,12 @@ const express = require("express"),
 
 if (process.env.NODE_ENV === "test")
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_test_db",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 else
 mongoose.connect(
-  "mongodb://localhost:27017/recipe_db",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
