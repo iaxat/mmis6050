@@ -255,5 +255,13 @@ module.exports = {
         message: "Provide Token"
       });
     }
+  },
+
+  verifyAdmin: (req,res,next) => {
+    if(res.locals.currentUser && res.locals.currentUser.isAdmin === true) {
+      next();
+    } else {
+      res.send("Not authorized");
+    }
   }
 };

@@ -6,8 +6,10 @@ const router = require("express").Router(),
   courseRoutes = require("./courseRoutes"),
   errorRoutes = require("./errorRoutes"),
   homeRoutes = require("./homeRoutes"),
-  apiRoutes = require("./apiRoutes");
+  apiRoutes = require("./apiRoutes"),
+  adminRoutes = require("./adminRoutes");
 
+router.use("/admin", adminRoutes)
 router.use("/users", userRoutes);
 router.use("/subscribers", subscriberRoutes);
 router.use("/courses", courseRoutes);

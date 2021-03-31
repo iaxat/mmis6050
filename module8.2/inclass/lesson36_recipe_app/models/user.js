@@ -22,6 +22,10 @@ const mongoose = require("mongoose"),
         lowercase: true,
         unique: true
       },
+      isAdmin: {
+        type: Boolean,
+        default: false
+      },
       // apiToken: {
       //   type: String
       // },

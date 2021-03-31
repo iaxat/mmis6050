@@ -20,12 +20,12 @@ const express = require("express"),
 
 if (process.env.NODE_ENV === "test")
 mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36?retryWrites=true&w=majority",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36-inclass?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 else
 mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36?retryWrites=true&w=majority",
+  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_36-inclass?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
@@ -42,7 +42,7 @@ else app.set("port", process.env.PORT || 3000);
 
 app.set("view engine", "ejs");
 app.set("token", process.env.TOKEN || "recipeT0k3n");
-app.use(morgan("combined"));
+// app.use(morgan("combined"));
 app.use(express.static("public"));
 app.use(layouts);
 app.use(
@@ -80,6 +80,7 @@ app.use(connectFlash());
 app.use((req, res, next) => {
   res.locals.loggedIn = req.isAuthenticated();
   res.locals.currentUser = req.user;
+  colsole.log("User is: ", req.user);
   res.locals.flashMessages = req.flash();
   next();
 });
