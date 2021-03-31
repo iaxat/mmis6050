@@ -18,14 +18,11 @@ const express = require("express"),
   coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
 
-  
+
 //mongoose.Promise = global.Promise;
 
-mongoose.connect(
-  "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe_34_35?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
-);
-
+mongoose.connect(process.env.MONGODB_URI,
+  {useNewUrlParser: true});
 
 const db = mongoose.connection;
 
@@ -81,8 +78,7 @@ app.use((req, res, next) => {
 
 app.use("/", router);
 
-const server = app.listen(app.get("port"), () => {
-    console.log(`Server running at http://localhost:${app.get("port")}`);
-  }),
-  io = require("socket.io")(server);
+const server = app.listen(app.get("port"), () => {console.log(`Server running at http://localhost:${app.get("port")}`);
+}),
+io = require("socket.io")(server);
 require("./controllers/chatController")(io);
