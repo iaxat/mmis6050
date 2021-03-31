@@ -15,7 +15,7 @@ const express = require("express"),
   User = require("./models/user");
 
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost:27017/recipe_db",
+  process.env.MONGODB_URI || "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe28?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
 );
 
