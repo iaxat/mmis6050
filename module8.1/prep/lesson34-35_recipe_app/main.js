@@ -17,7 +17,7 @@ const express = require("express"),
   usersController = require("./controllers/usersController"),
   coursesController = require("./controllers/coursesController"),
   User = require("./models/user");
-
+  const morgan = require("morgan");
 
 //mongoose.Promise = global.Promise;
 
