@@ -14,10 +14,23 @@ const express = require("express"),
   morgan = require("morgan"),
   User = require("./models/user");
 
-mongoose.connect(
-  process.env.MONGODB_URI || "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe28?retryWrites=true&w=majority",
-  { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
-);
+// mongoose.connect(
+//   process.env.MONGODB_URI || "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe28?retryWrites=true&w=majority",
+//   { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true }
+// );
+
+if (process.env.NODE_ENV === "test")
+  mongoose.connect("mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe36?retryWrites=true&w=majority", {
+    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true
+  });
+else
+  mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://root:root@akshat.y9onm.mongodb.net/recipe36?retryWrites=true&w=majority", {
+    useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true
+  });
+
+
+
+
 
 const db = mongoose.connection;
 
