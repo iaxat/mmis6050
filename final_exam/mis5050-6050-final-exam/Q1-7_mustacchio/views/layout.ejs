@@ -34,7 +34,33 @@
             <li>
 				<a href="/contacts">contact requests</a>
 			</li>
+			<% if(loggedIn) {  %>
+				
+			<li>
+				<a href="/logout">logout</a>
+			</li>
+			<li>
+				<a>hi, <%=currentUser.firstName%></a>
+			</li>
+			<% } else{ %>
+				<li>
+					<a href="/login">login</a>
+				</li>
+			<% } %>
 		</ul>
+	</div>
+	<div class="flashes">
+		<% if (flashMessages) { %>
+		<% if (flashMessages.success) { %>
+		<div class="flash success">
+			<%= flashMessages.success %>
+		</div>
+		<% } else if (flashMessages.error) { %>
+		<div class="flash error">
+			<%= flashMessages.error %>
+		</div>
+		<% } %>
+		<% } %>
 	</div>
 	<div id="body">
 		<%- body %>

@@ -113,7 +113,7 @@ module.exports = {
         res.locals.redirect = "/users";
         next();
       })
-      .catch(error => {
+      .catch(error => {n 
         console.log(`Error deleting user by ID: ${error.message}`);
         next();
       });
@@ -150,7 +150,6 @@ module.exports = {
       } else {
         next();                                                      
       }
-    
   },
   
   //OLD VERSION of validate
