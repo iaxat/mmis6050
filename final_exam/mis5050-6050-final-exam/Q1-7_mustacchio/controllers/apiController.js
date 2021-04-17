@@ -64,8 +64,8 @@ module.exports = {
             }
           };          
           axios.request(options).then( (response)=> {
-            //   console.log(response.data);
-              res.render("external-api", { Data: response.data });
+            //   console.log(response.data.price.regularMarketPrice.raw);
+              res.render("external-api", { Data: response.data.price.regularMarketPrice.raw });
           }).catch(function (error) {
               console.error(error);
           });
