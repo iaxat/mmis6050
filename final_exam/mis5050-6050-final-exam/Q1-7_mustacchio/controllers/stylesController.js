@@ -7,7 +7,6 @@ module.exports = {
         }).catch((err) => {
             next(err);
         })
-
     },
 
     showStyle : (req, res, next) => {
@@ -44,7 +43,18 @@ module.exports = {
                 return res.status(500).send(err);
 
             // res.send('File uploaded!');
-            next();
+            // next();
         });
-    }
+        let styleParameters={
+            title : req.body.title,
+            description: req.body.description,
+            imageUrl: sampleFile.name
+        }
+        Style.create(styleParameters).then(style =>{
+            res.locals.reditrect="/gallery";
+            next();
+        }).catch(error=>{
+            next(error);
+        });
+    },
 }

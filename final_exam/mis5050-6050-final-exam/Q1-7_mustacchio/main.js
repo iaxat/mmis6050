@@ -20,6 +20,7 @@ const contactsController = require("./controllers/contactsController");
 const userController = require("./controllers/userController");
 const errorController = require("./controllers/errorController");
 const passport = require("passport");
+const apiController = require("./controllers/apiController");
 
 // App Settings
 app.set("port", process.env.PORT || 3000);
@@ -73,6 +74,10 @@ app.get("/about", homeController.about);
 app.get("/login",userController.login);
 app.post("/login", userController.authenticate,userController.redirectView);
 app.get("/register",userController.register);
+app.get("/addFavStyle/:id",userController.addFavStyle,userController.showFavStyles);
+app.get("/viewUsers",userController.index,userController.indexView);
+app.get("/grant/:id",userController.grant,userController.redirectView);
+app.get("/revoke/:id",userController.revoke,userController.redirectView);
 app.post("/users/create",userController.create,userController.redirectView);
 app.get("/logout",userController.logout,userController.redirectView);
 
@@ -92,6 +97,11 @@ app.post("/contacts/create", contactsController.createContact);
 app.get("/contacts", contactsController.getUnrespondedContacts);
 app.get("/contacts/:id/edit", contactsController.getContactById);
 app.post("/contacts/:id/update", contactsController.updateContactById);
+
+// Api routes
+app.get("/api/styles",apiController.verifyToken,apiController.getStyles,apiController.respondJSON);
+app.get("/api/token",apiController.getToken);
+app.get("/api/external/:symbol",apiController.externalApi);
 
 // Error routes
 app.use(errorController.handleErrors);

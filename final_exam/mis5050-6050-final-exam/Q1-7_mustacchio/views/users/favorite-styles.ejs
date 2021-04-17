@@ -1,0 +1,13 @@
+<h1><span>My favorite style gallery</span></h1>
+<ul class="gallery">
+
+    <%console.log("imnside")%>
+    <%console.log(styles)%>
+    <% styles.forEach((style) => { %>
+        <li>
+            <a href="/style/<%= style._id %>">
+                <img src="images/<%=style.imageUrl %>" width="100" height="100">
+            </a>
+        </li>
+    <%})%>
+</ul>

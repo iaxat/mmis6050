@@ -1,0 +1,21 @@
+<h1><span>style gallery</span></h1>
+<ul class="gallery">
+    <% users.forEach((user) => { %>
+        <li>
+            <p>first name : <%= user.firstName%></p>
+        </li>
+        <li>
+            <p>last name : <%= user.lastName%></p>
+        </li>
+        <li>
+            <p>email : <%= user.email%></p>
+        </li>
+        <li>
+            <% if(user.isAdmin) { %>
+                <p><a href="<%= `/revoke/${user._id}` %>">revoke adim privelege</a></p>       
+            <% } else { %>
+                <p><a href="<%= `/grant/${user._id}` %>">grant adim privelege</a></p>
+            <% } %>
+        </li>
+    <% }); %>
+</ul>

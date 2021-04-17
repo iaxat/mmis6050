@@ -31,9 +31,11 @@
 			<li>
 				<a href="/contacts/new">contact</a>
             </li>
+			<% if(loggedIn && currentUser.isAdmin){ %>
             <li>
 				<a href="/contacts">contact requests</a>
 			</li>
+			<% } %>
 			<% if(loggedIn) {  %>
 				
 			<li>

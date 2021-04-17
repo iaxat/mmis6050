@@ -31,7 +31,7 @@ const getUserParams = body => {
         });
     },
     indexView: (req, res) => {
-      res.render("users/index");
+      res.render("users/viewUsers");
     },
     new: (req, res) => {
       res.render("users/new");
@@ -70,6 +70,32 @@ const getUserParams = body => {
     showView: (req, res) => {
       res.render("users/show");
     },
+    grant :(req,res,next)=>{
+      let userParams={
+        isAdmin:true,
+      };
+      User.findByIdAndUpdate(req.params.id,{
+        $set: userParams 
+      }).then(user=> {
+        res.locals.redirect="/viewUsers";
+        next();
+      }).catch(error =>{
+        next(error);
+      });
+    },
+    revoke: (req,res,next) =>{
+      let userParams={
+        isAdmin:false,
+      };
+      User.findByIdAndUpdate(req.params.id,{
+        $set: userParams 
+      }).then(user=> {
+        res.locals.redirect="/viewUsers";
+        next();
+      }).catch(error =>{
+        next(error);
+      });
+    },
     edit: (req, res, next) => {
       let userId = req.params.id;
       User.findById(userId)
@@ -82,6 +108,21 @@ const getUserParams = body => {
           console.log(`Error fetching user by ID: ${error.message}`);
           next(error);
         });
+    },
+    addFavStyle:(req,res,next)=>{
+      console.log(req.user._id)
+      User.findByIdAndUpdate(req.user._id,{
+        $addToSet: {favoriteStyles:[req.params.id]}
+      }).then(users=>{
+        console.log("done")
+        res.locals.redirect="/gallery";
+        next();
+      })
+    },
+    showFavStyles: async (req,res,next)=>{
+      let styleId=await User.findById(req.user._id,"favoriteStyles").populate("favoriteStyles");
+      console.log("style uds ",styleId)
+      res.render("users/favorite-styles",{styles: styleId.favoriteStyles});
     },
     update: (req, res, next) => {
       let userId = req.params.id,

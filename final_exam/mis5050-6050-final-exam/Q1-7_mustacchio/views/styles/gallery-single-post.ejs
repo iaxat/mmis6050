@@ -7,6 +7,9 @@
 				<p>
 				<%= style.description %>
 				</p>
+				<% if(loggedIn) { %>
+					<p><a href="/addFavStyle/<%= style._id %>">save as favourite</p>
+				<%}%>
 			</div>
 		</div>
 	
