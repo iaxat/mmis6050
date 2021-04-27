@@ -1,0 +1,28 @@
+
+<table class="table">
+  <tr>
+    <th>Name</th>
+    <td>
+      <%= user.name['first'] %>
+    </td>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <td>
+      <%= user.email %>
+    </td>
+  </tr>
+  <tr>
+    <th>Zip Code</th>
+    <td>
+      <%= user.zipCode %>
+    </td>
+  </tr>
+</table>
+
+<div>
+  <a class="button" href="<%=`/users/${user._id}/edit`%>">
+    Edit User Details
+  </a>
+</div>
+

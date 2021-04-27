@@ -1,0 +1,21 @@
+<div class="data-form">
+        <form class="form-signin" ref='uploadForm' id='uploadForm' action="/admin/create" method='post' encType="multipart/form-data">
+            <h2 class="form-signin-heading">Enter details for your product :</h2>
+    
+            <label for="inputProductName">Product Name</label>
+            <input type="text" name="productName" id="inputProductName" class="form-control" placeholder="Product Name"
+                autofocus>
+    
+            <label for="inputDescription">Description</label>
+            <input type="text" name="description" id="inputDescription" class="form-control" placeholder="description">
+    
+            <label for="inputPrice">price</label>
+            <input type="number" name="price" id="inputPrice" class="form-control" placeholder="Price" required>
+    
+            <label for="inputImage">image</label>
+            <input type="file" name="sampleFile" id="inputImage" class="form-control" placeholder="Image" required>
+    
+            <br />
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+        </form>
+</div>
