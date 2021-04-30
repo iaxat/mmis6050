@@ -1,6 +1,7 @@
 const product = require("../models/product");
 const Product= require("../models/product");
 const User=require("../models/user");
+const colorize = require('json-colorizer');
 
 const httpStatus=require("http-status-codes");
 
@@ -22,6 +23,7 @@ module.exports={
     },
 
     resJson:(req,res,next)=>{
+        console.log(colorize(res.locals))
         res.json({status:httpStatus.OK,
             data:res.locals})
     },

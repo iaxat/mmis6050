@@ -22,7 +22,7 @@ module.exports = {
   create: (req, res, next) => {
     if (req.skip) next();
     let newUser = new User(getUserParams(req.body));
-    console.log(newUser)
+ 
     User.register(newUser, req.body.password, (error, user) => {
       if (user) {
         req.flash("success", `${user.fullName}'s account created successfully!`);
