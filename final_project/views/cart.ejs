@@ -1,0 +1,32 @@
+<div class="featured-product product">
+	<div class="container-fluid">
+		<div class="section-header">
+			<h1>Cart</h1>
+		</div>
+		<div class="row align-items-center product-slider product-slider-4">
+
+			<!-- product 1 start  -->
+			<% console.log(products) %>
+
+			<% products.forEach(product =>{  %>
+
+			<div class="col-lg-3">
+				<div class="product-item">
+					<div class="product-title"> 
+					 <%= product.productName%>
+						
+					</div>
+					<div class="product-image">
+						
+							<img src="images/<%= product.imageUrl %>">
+						
+					</div>
+				</div>
+				
+			</div>
+
+		<% }) %>
+			<!-- product 1 end -->
+		</div>
+	</div>
+</div>
